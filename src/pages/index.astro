@@ -1,10 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Randomly select background image
-const backgrounds = ['/bg1.jpeg', '/bg2.jpeg'];
-const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-
 const projects = [
   {
     name: 'Note Taker',
@@ -45,7 +41,7 @@ const projects = [
     <!-- Background Image -->
     <div class="fixed inset-0 z-0">
       <img
-        src={randomBg}
+        src="/bg1.jpeg"
         alt="Background"
         class="w-full h-full object-cover"
       />
