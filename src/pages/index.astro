@@ -39,7 +39,7 @@ const projects = [
 <BaseLayout backgroundImage="/images/bg1.jpeg">
   <div class="relative min-h-screen flex flex-col">
     <!-- Background Overlay -->
-    <div class="fixed inset-0 z-0 bg-gradient-to-b from-black/10 via-black/30 to-black/80"></div>
+    <div class="fixed z-0 bg-gradient-to-b from-black/10 via-black/30 to-black/80" style="top: calc(-1 * env(safe-area-inset-top, 0px)); right: calc(-1 * env(safe-area-inset-right, 0px)); bottom: calc(-1 * env(safe-area-inset-bottom, 0px)); left: calc(-1 * env(safe-area-inset-left, 0px));"></div>
 
     <!-- Top Navigation -->
     <nav class="relative z-10 p-6 flex justify-end">
