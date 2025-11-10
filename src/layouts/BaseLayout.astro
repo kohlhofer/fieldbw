@@ -4,11 +4,13 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  backgroundImage?: string;
 }
 
 const {
   title = 'Field Bureau + Werkstatt',
-  description = 'Field Bureau + Werkstatt - Innovation and Craftsmanship'
+  description = 'Field Bureau + Werkstatt - Innovation and Craftsmanship',
+  backgroundImage
 } = Astro.props;
 ---
 
@@ -25,7 +27,7 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lexend:wght@300;400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen font-body">
+  <body class="min-h-screen font-body bg-cover bg-center bg-no-repeat bg-fixed" style={backgroundImage ? `background-image: url('${backgroundImage}');` : ''}>
     <slot />
   </body>
 </html>

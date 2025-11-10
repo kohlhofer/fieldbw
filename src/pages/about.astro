@@ -2,18 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="About - Field Bureau + Werkstatt">
+<BaseLayout title="About - Field Bureau + Werkstatt" backgroundImage="/bg2.jpeg">
   <div class="relative min-h-screen flex flex-col">
-    <!-- Background Image -->
-    <div class="fixed inset-0 z-0">
-      <img
-        src="/bg2.jpeg"
-        alt="Background"
-        class="w-full h-full object-cover"
-      />
-      <!-- Overlay for better text readability -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/80"></div>
-    </div>
+    <!-- Background Overlay -->
+    <div class="fixed inset-0 z-0 bg-gradient-to-b from-black/10 via-black/50 to-black/80"></div>
 
     <!-- Top Navigation -->
     <nav class="relative z-10 p-6">
