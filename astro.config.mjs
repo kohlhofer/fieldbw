@@ -8,10 +8,29 @@ export default defineConfig({
   site: 'https://fieldbw.com',
   output: 'static',
   trailingSlash: 'ignore',
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    }
+  },
   build: {
-    format: 'directory'
+    format: 'directory',
+    assets: '_astro'
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: (assetInfo) => {
+            // Keep images in their organized folders
+            if (/\.(jpe?g|png|gif|webp|avif|svg)$/i.test(assetInfo.name)) {
+              return 'images/[name]-[hash][extname]';
+            }
+            return '_astro/[name]-[hash][extname]';
+          }
+        }
+      }
+    }
   }
 });
