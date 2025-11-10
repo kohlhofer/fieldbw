@@ -5,13 +5,22 @@ interface Props {
   title?: string;
   description?: string;
   backgroundImage?: string;
+  gradientOverlay?: string;
 }
 
 const {
   title = 'Field Bureau + Werkstatt',
   description = 'Field Bureau + Werkstatt - Innovation and Craftsmanship',
-  backgroundImage
+  backgroundImage,
+  gradientOverlay
 } = Astro.props;
+
+// Combine background image with gradient overlay
+const backgroundStyle = backgroundImage && gradientOverlay
+  ? `background-image: ${gradientOverlay}, url('${backgroundImage}');`
+  : backgroundImage
+  ? `background-image: url('${backgroundImage}');`
+  : '';
 ---
 
 <!DOCTYPE html>
@@ -44,7 +53,7 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lexend:wght@300;400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen font-body bg-cover bg-center bg-no-repeat bg-fixed" style={backgroundImage ? `background-image: url('${backgroundImage}');` : ''}>
+  <body class="min-h-screen font-body bg-cover bg-center bg-no-repeat bg-fixed" style={backgroundStyle}>
     <slot />
   </body>
 </html>

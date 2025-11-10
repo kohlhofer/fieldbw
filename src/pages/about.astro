@@ -2,10 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="About - Field Bureau + Werkstatt" backgroundImage="/images/bg2.jpeg">
+<BaseLayout
+  title="About - Field Bureau + Werkstatt"
+  backgroundImage="/images/bg2.jpeg"
+  gradientOverlay="linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.8))"
+>
   <div class="relative min-h-screen flex flex-col">
-    <!-- Background Overlay -->
-    <div class="fixed z-0 bg-gradient-to-b from-black/10 via-black/50 to-black/80" style="top: calc(-1 * env(safe-area-inset-top, 0px)); right: calc(-1 * env(safe-area-inset-right, 0px)); bottom: calc(-1 * env(safe-area-inset-bottom, 0px)); left: calc(-1 * env(safe-area-inset-left, 0px));"></div>
 
     <!-- Top Navigation -->
     <nav class="relative z-10 p-6">
