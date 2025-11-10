@@ -43,7 +43,7 @@ const projects = [
   <div class="relative min-h-screen flex flex-col">
 
     <!-- Top Navigation -->
-    <nav class="relative z-10 p-6 flex justify-end">
+    <nav class="relative z-10 px-12 py-6 flex justify-end">
       <a
         href="/about"
         class="text-white/80 hover:text-white transition-colors duration-200 text-sm tracking-wide"
@@ -53,7 +53,7 @@ const projects = [
     </nav>
 
     <!-- Center Content -->
-    <div class="relative z-10 flex-1 flex items-center justify-center px-6">
+    <div class="relative z-10 flex-1 flex items-center px-12">
       <div class="text-left">
         <h1 class="text-5xl md:text-7xl font-light text-white tracking-wide leading-none">
           <div>Field</div>
@@ -64,7 +64,7 @@ const projects = [
     </div>
 
     <!-- Bottom Project Links -->
-    <div class="relative z-10 p-8">
+    <div class="relative z-10 px-12 py-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-7xl">
         {projects.map((project, index) => (
           project.comingSoon ? (
