@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
 @layer base {
+  html {
+    /* Enable full viewport coverage including notch areas */
+    height: 100%;
+  }
+
   body {
     font-family: 'Inter', sans-serif;
+    /* Ensure body extends into safe areas */
+    min-height: 100vh;
+    /* Support for iPhone X+ notch and other safe areas */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 
   h1, h2, h3, h4, h5, h6 {
