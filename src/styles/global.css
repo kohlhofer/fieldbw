@@ -8,10 +8,13 @@
 
   body {
     font-family: 'Inter', sans-serif;
-    /* Ensure body extends into safe areas */
+    /* Remove body padding - background needs to extend fully */
+    /* Content wrapper will handle safe-area-inset instead */
     min-height: 100vh;
-    /* Support for iPhone X+ notch and other safe areas */
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    min-height: 100dvh; /* Use dynamic viewport height for mobile */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
