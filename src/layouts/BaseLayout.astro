@@ -54,24 +54,7 @@ const backgroundStyle = backgroundImage && gradientOverlay
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lexend:wght@300;400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="font-body" style={`
-    ${backgroundStyle}
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-  `}>
-    <!-- Scrollable Content Container -->
-    <div class="main-container" style="
-      position: relative;
-      min-height: 100vh;
-      min-height: 100dvh;
-      padding-top: env(safe-area-inset-top);
-      padding-right: env(safe-area-inset-right);
-      padding-bottom: env(safe-area-inset-bottom);
-      padding-left: env(safe-area-inset-left);
-    ">
-      <slot />
-    </div>
+  <body class="font-body min-h-screen bg-cover bg-center bg-no-repeat" style={backgroundStyle}>
+    <slot />
   </body>
 </html>
