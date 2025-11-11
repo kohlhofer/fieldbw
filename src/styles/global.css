@@ -1,20 +1,12 @@
 @import "tailwindcss";
 
 @layer base {
-  html {
-    /* Enable full viewport coverage including notch areas */
-    height: 100%;
-  }
-
-  body {
+  html, body {
     font-family: 'Inter', sans-serif;
-    /* Remove body padding - background needs to extend fully */
-    /* Content wrapper will handle safe-area-inset instead */
-    min-height: 100vh;
-    min-height: 100dvh; /* Use dynamic viewport height for mobile */
+    height: 100vh;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
