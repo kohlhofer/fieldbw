@@ -1,9 +1,17 @@
 @import "tailwindcss";
 
 @layer base {
-  html, body {
+  html {
+    height: 100vh;
+    height: -webkit-fill-available;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
     font-family: 'Inter', sans-serif;
     height: 100vh;
+    height: -webkit-fill-available;
     margin: 0;
     padding: 0;
     overflow: hidden;
