@@ -54,7 +54,11 @@ const backgroundStyle = backgroundImage && gradientOverlay
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lexend:wght@300;400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="font-body min-h-screen bg-center bg-no-repeat" style={`${backgroundStyle} background-size: 100% 100%;`}>
-    <slot />
+  <body class="font-body">
+    <!-- Background wrapper that covers entire page -->
+    <div class="absolute inset-0 -z-10" style={`${backgroundStyle} background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100%;`}></div>
+    <div class="relative min-h-screen">
+      <slot />
+    </div>
   </body>
 </html>
