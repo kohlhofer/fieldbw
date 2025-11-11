@@ -53,16 +53,7 @@ const backgroundStyle = backgroundImage && gradientOverlay
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lexend:wght@300;400;500&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="font-body" style="margin: 0; padding: 0;">
-    <!-- Fixed background layer that extends fully edge-to-edge -->
-    {backgroundImage && (
-      <div
-        class="fixed bg-cover bg-center bg-no-repeat"
-        style={`${backgroundStyle} top: 0; right: 0; bottom: 0; left: 0; z-index: -1;`}
-        aria-hidden="true"
-      />
-    )}
-
+  <body class="font-body" style={`margin: 0; padding: 0; ${backgroundStyle} background-attachment: fixed; background-size: cover; background-position: center; background-repeat: no-repeat;`}>
     <!-- Content wrapper with safe-area-inset padding -->
     <div class="relative min-h-screen" style="
       padding-top: max(0px, env(safe-area-inset-top));
