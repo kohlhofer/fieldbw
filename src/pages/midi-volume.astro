@@ -47,7 +47,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </h1>
 
               <p class="text-xl md:text-2xl text-white/90 leading-relaxed drop-shadow-lg">
-                Control your Mac's system and music volume <strong>independently</strong> with any MIDI controller
+                Control your Mac's system and music volume <strong>independently</strong> with any MIDI controller - and a handy menu bar icon
               </p>
             </div>
 
@@ -74,9 +74,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="max-w-6xl mx-auto">
           <!-- Features Grid -->
           <div class="mb-20">
-          <h2 class="text-3xl md:text-4xl font-light text-white mb-12 text-center drop-shadow-lg">
+          <h2 class="text-3xl md:text-4xl font-light text-white mb-6 text-center drop-shadow-lg">
             Simple, Powerful, Convenient
           </h2>
+          <p class="text-xl text-white/80 max-w-3xl mx-auto text-center mb-12 drop-shadow-lg">
+            Turn any MIDI controller into a volume control for your Mac. Perfect for quick adjustments while listening to music.
+          </p>
 
           <div class="grid md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-white/20">
             <!-- System Volume Control -->
@@ -221,6 +224,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 <p class="text-white/80 text-sm leading-relaxed drop-shadow-lg">Automatic MIDI device detection when you connect or disconnect controllers.</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="my-20">
+          <div class="text-center max-w-4xl mx-auto backdrop-blur-sm bg-white/5 border border-white/20 rounded-2xl p-12 animate-fade-in-up" style="animation-delay: 200ms; opacity: 0;">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-6 drop-shadow-lg">
+              Ready to Control Your Volume?
+            </h2>
+            <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto drop-shadow-lg">
+              Download MIDI Volume Control and start using your MIDI controller for effortless volume control.
+            </p>
+
+            <a
+              href="https://apps.apple.com/us/app/midi-volume-control/id6752268711?mt=12"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-white/10 backdrop-blur-sm border border-white/30 rounded-xl hover:bg-white/20 hover:border-white/40 transition-all duration-200 shadow-lg"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+              </svg>
+              Download from App Store
+            </a>
           </div>
         </div>
 
