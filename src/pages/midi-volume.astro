@@ -229,11 +229,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <!-- Footer with black background -->
   <footer class="bg-black py-8 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
-      <p class="text-center text-white/30 text-xs tracking-wide">
-        <span class="font-semibold">Field Bureau + Werkstatt</span>
-        <span class="mx-2">•</span>
-        © {new Date().getFullYear()} Field Bureau & Werkstatt LLC. All rights reserved.
-      </p>
+      <div class="flex flex-col items-center space-y-4">
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-white/50 text-xs">
+          <a href="/midi-volume-support" class="hover:text-white/80 transition-colors">Support</a>
+          <a href="/midi-volume-privacy" class="hover:text-white/80 transition-colors">Privacy Policy</a>
+          <a href="/midi-volume-terms" class="hover:text-white/80 transition-colors">Terms of Service</a>
+        </div>
+        <p class="text-center text-white/30 text-xs tracking-wide">
+          <span class="font-semibold">Field Bureau + Werkstatt</span>
+          <span class="mx-2">•</span>
+          © {new Date().getFullYear()} Field Bureau & Werkstatt LLC. All rights reserved.
+        </p>
+      </div>
     </div>
   </footer>
 </BaseLayout>
