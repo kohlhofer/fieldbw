@@ -20,6 +20,8 @@ const backgroundStyle = backgroundImage && gradientOverlay
   ? `background-image: ${gradientOverlay}, url('${backgroundImage}');`
   : backgroundImage
   ? `background-image: url('${backgroundImage}');`
+  : gradientOverlay
+  ? `background-image: ${gradientOverlay};`
   : '';
 ---
 
