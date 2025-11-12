@@ -5,19 +5,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout
   title="Support - MIDI Volume Control - Field Bureau + Werkstatt"
   description="Get help with MIDI Volume Control. Find answers to common questions and contact support for assistance."
-  backgroundImage="/images/bg2.jpeg"
-  gradientOverlay="linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.9))"
+  gradientOverlay="linear-gradient(to bottom, #1a1a1a, #0f0f0f)"
 >
   <div class="relative min-h-screen flex flex-col">
 
-    <!-- Top Navigation -->
+    <!-- Breadcrumb Navigation -->
     <nav class="relative z-10 px-6 md:px-12 py-6">
-      <a
-        href="/midi-volume"
-        class="text-white/80 hover:text-white transition-colors duration-200 text-sm tracking-wide drop-shadow-lg"
-      >
-        ← Back to MIDI Volume Control
-      </a>
+      <div class="flex items-center space-x-2 text-sm text-white/80 drop-shadow-lg">
+        <a href="/" class="hover:text-white transition-colors">Home</a>
+        <span class="text-white/40">/</span>
+        <a href="/midi-volume" class="hover:text-white transition-colors">MIDI Volume Control</a>
+        <span class="text-white/40">/</span>
+        <span class="text-white">Support</span>
+      </div>
     </nav>
 
     <!-- Content -->
