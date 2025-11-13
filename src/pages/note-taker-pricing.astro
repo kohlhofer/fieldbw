@@ -1,0 +1,245 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Check, Mic, Sparkles, Users, Upload, Lock, Zap } from 'lucide-react';
+---
+
+<BaseLayout
+  title="Pricing – On-Device Note Taker"
+  description="On-Device Note Taker pricing: $9.99 one-time purchase. No subscriptions, no monthly fees. Compare and save over $200/year vs competitors."
+  backgroundImage="/images/bg3.jpg"
+  gradientOverlay="linear-gradient(to bottom, #4a4a4a, #2a2a2a)"
+>
+  <!-- Breadcrumb -->
+  <div class="relative z-10 pt-8 pb-4">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-white/70 drop-shadow-lg">
+        <a href="/" class="hover:text-white/90 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/note-taker" class="hover:text-white/90 transition-colors">On-Device Note Taker</a>
+        <span class="mx-2">/</span>
+        <span class="text-white/90">Pricing</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-light text-white leading-tight mb-4 drop-shadow-lg fade-in">
+        Simple, Honest Pricing
+      </h1>
+      <p class="text-xl md:text-2xl text-white/90 drop-shadow-lg fade-in" style="animation-delay: 0.1s;">Buy once. Use forever. No subscriptions.</p>
+    </div>
+  </section>
+
+  <!-- Main Pricing Card -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-2xl mx-auto px-6">
+      <div class="bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-3xl p-12 text-center shadow-2xl fade-in">
+        <div class="inline-block bg-white/20 backdrop-blur-sm text-white px-6 py-2 rounded-full text-sm font-semibold mb-6 border border-white/30 drop-shadow-lg">
+          One-Time Purchase
+        </div>
+        <h2 class="text-3xl font-bold mb-4 text-white drop-shadow-lg">On-Device Note Taker</h2>
+        <div class="flex items-start justify-center mb-2 text-white">
+          <span class="text-4xl font-semibold mt-2 drop-shadow-lg">$</span>
+          <span class="text-7xl font-bold drop-shadow-lg">9.99</span>
+        </div>
+        <p class="text-xl text-white/80 mb-8 drop-shadow-lg">Pay once. Own it forever.</p>
+
+        <ul class="text-left space-y-4 mb-8 max-w-md mx-auto">
+          {[
+            'All features included',
+            'Unlimited transcriptions',
+            'No monthly fees',
+            'No usage limits',
+            'Works on all your Macs',
+            'Free updates',
+            'Privacy guaranteed',
+            'Offline functionality',
+          ].map((feature, index) => (
+            <li class="flex items-center gap-3 text-white/90" style={`animation-delay: ${index * 0.05}s;`}>
+              <Check size={20} className="text-green-400" />
+              <span class="text-lg drop-shadow-lg">{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href="/note-taker-download"
+          class="block w-full py-4 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-xl font-semibold text-lg border border-white/30 transition-all hover:shadow-2xl hover:scale-105 drop-shadow-lg"
+        >
+          Download for Mac
+        </a>
+        <p class="mt-4 text-sm text-white/70 drop-shadow-lg">Available on the Mac App Store • 14-day refund policy</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cost Comparison -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white drop-shadow-lg fade-in">See How Much You Save</h2>
+      <p class="text-xl text-white/80 text-center mb-16 drop-shadow-lg fade-in" style="animation-delay: 0.1s;">Compare the total cost over 2 years</p>
+
+      <div class="max-w-4xl mx-auto fade-in" style="animation-delay: 0.2s;">
+        <!-- Comparison Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+          <div class="bg-white/5 backdrop-blur-sm border-2 border-white/10 rounded-xl p-6 text-center">
+            <h3 class="text-xl font-semibold mb-2 text-white/90 drop-shadow-lg">Otter.ai</h3>
+            <div class="text-3xl font-bold text-white/90 mb-2 drop-shadow-lg">$407.76</div>
+            <p class="text-sm text-white/70 drop-shadow-lg">$16.99/month × 24 months</p>
+          </div>
+          <div class="bg-white/5 backdrop-blur-sm border-2 border-white/10 rounded-xl p-6 text-center">
+            <h3 class="text-xl font-semibold mb-2 text-white/90 drop-shadow-lg">Fireflies.ai</h3>
+            <div class="text-3xl font-bold text-white/90 mb-2 drop-shadow-lg">$240.00</div>
+            <p class="text-sm text-white/70 drop-shadow-lg">$10/month × 24 months</p>
+          </div>
+          <div class="bg-white/5 backdrop-blur-sm border-2 border-white/10 rounded-xl p-6 text-center">
+            <h3 class="text-xl font-semibold mb-2 text-white/90 drop-shadow-lg">Grain</h3>
+            <div class="text-3xl font-bold text-white/90 mb-2 drop-shadow-lg">$360.00</div>
+            <p class="text-sm text-white/70 drop-shadow-lg">$15/month × 24 months</p>
+          </div>
+          <div class="bg-green-500/10 border-2 border-green-400/30 rounded-xl p-6 text-center backdrop-blur-sm">
+            <h3 class="text-xl font-semibold mb-2 text-white drop-shadow-lg">On-Device Note Taker</h3>
+            <div class="text-3xl font-bold text-green-400 mb-2 drop-shadow-lg">$9.99</div>
+            <p class="text-sm text-white/70 mb-4 drop-shadow-lg">One-time purchase</p>
+            <div class="bg-green-400 text-slate-900 px-4 py-2 rounded-full text-sm font-semibold">
+              Save $326
+            </div>
+          </div>
+        </div>
+
+        <!-- Savings Summary -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 text-center border border-white/20">
+          <h3 class="text-2xl font-semibold mb-6 text-white drop-shadow-lg">
+            Over <span class="text-green-400">2 years</span>, you save:
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <div class="text-3xl font-bold text-green-400 mb-2 drop-shadow-lg">$397.77</div>
+              <p class="text-sm text-white/70 drop-shadow-lg">vs Otter.ai</p>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-green-400 mb-2 drop-shadow-lg">$230.01</div>
+              <p class="text-sm text-white/70 drop-shadow-lg">vs Fireflies.ai</p>
+            </div>
+            <div>
+              <div class="text-3xl font-bold text-green-400 mb-2 drop-shadow-lg">$350.01</div>
+              <p class="text-sm text-white/70 drop-shadow-lg">vs Grain</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white drop-shadow-lg fade-in">Everything You Need</h2>
+      <p class="text-xl text-white/80 text-center mb-16 drop-shadow-lg fade-in" style="animation-delay: 0.1s;">No tiers. No add-ons. No upsells.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {
+            icon: Mic,
+            title: 'Recording & Transcription',
+            features: [
+              'Direct audio capture (no bots)',
+              'Real-time transcription',
+              'Unlimited recording length',
+              'Multi-language support',
+              'Import audio files',
+            ],
+          },
+          {
+            icon: Sparkles,
+            title: 'AI Features',
+            features: [
+              'Automatic summaries',
+              'Action items extraction',
+              'Interactive chat',
+              'Key points identification',
+              'All on-device processing',
+            ],
+          },
+          {
+            icon: Users,
+            title: 'Organization',
+            features: [
+              'Speaker identification',
+              'Custom tags',
+              'Full-text search',
+              'Speaking time stats',
+              'Unlimited documents',
+            ],
+          },
+          {
+            icon: Upload,
+            title: 'Sharing & Export',
+            features: [
+              'Export to Markdown, text, JSON',
+              'Share via AirDrop, Messages',
+              'Native macOS integration',
+              'Batch export',
+              'Audio export',
+            ],
+          },
+          {
+            icon: Lock,
+            title: 'Privacy & Security',
+            features: [
+              '100% local processing',
+              'No cloud uploads',
+              'Sandboxed app',
+              'Works offline',
+              'Your data stays yours',
+            ],
+          },
+          {
+            icon: Zap,
+            title: 'Updates & Support',
+            features: [
+              'Free software updates',
+              'New features included',
+              'Email support',
+              'Documentation',
+              'Works on all your Macs',
+            ],
+          },
+        ].map((category, catIndex) => (
+          <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 fade-in" style={`animation-delay: ${catIndex * 0.1}s;`}>
+            <div class="mb-4">
+              <category.icon size={40} className="text-white/90" />
+            </div>
+            <h3 class="text-xl font-semibold mb-4 text-white drop-shadow-lg">{category.title}</h3>
+            <ul class="space-y-2">
+              {category.features.map((feature) => (
+                <li class="flex items-start gap-2 text-white/80">
+                  <Check size={16} className="text-green-400 mt-0.5" />
+                  <span class="drop-shadow-lg">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg fade-in">Stop Paying Monthly. Start Owning.</h2>
+      <p class="text-xl mb-8 text-white/90 drop-shadow-lg fade-in" style="animation-delay: 0.1s;">Join hundreds of users who've already made the switch.</p>
+      <a
+        href="/note-taker-download"
+        class="inline-block px-10 py-5 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-xl font-semibold text-lg border border-white/30 transition-all hover:shadow-2xl hover:scale-105 drop-shadow-lg fade-in"
+        style="animation-delay: 0.2s;"
+      >
+        Get On-Device Note Taker - $9.99
+      </a>
+      <p class="mt-6 text-sm text-white/70 drop-shadow-lg fade-in" style="animation-delay: 0.3s;">One purchase. Lifetime access. Money-back guarantee.</p>
+    </div>
+  </section>
+</BaseLayout>

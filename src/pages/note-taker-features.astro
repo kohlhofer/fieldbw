@@ -1,0 +1,250 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Lock, ShieldOff, Check, Laptop, Cloud, X, Mic, Zap, Sparkles, MessageSquare, Upload, Tag, Search } from 'lucide-react';
+
+const iconSize = 40;
+---
+
+<BaseLayout
+  title="Features – On-Device Note Taker"
+  description="Explore the powerful features of On-Device Note Taker: privacy-first transcription, AI summaries, speaker identification, and more."
+  backgroundImage="/images/bg3.jpg"
+  gradientOverlay="linear-gradient(to bottom, #4a4a4a, #2a2a2a)"
+>
+  <!-- Breadcrumb -->
+  <div class="relative z-10 pt-8 pb-4">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-white/70 drop-shadow-lg">
+        <a href="/" class="hover:text-white/90 transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/note-taker" class="hover:text-white/90 transition-colors">On-Device Note Taker</a>
+        <span class="mx-2">/</span>
+        <span class="text-white/90">Features</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <section class="relative z-10 py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-light text-white leading-tight mb-4 drop-shadow-lg fade-in">
+        Powerful Features.<br/><span class="text-white/90">Complete Privacy.</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/90 drop-shadow-lg fade-in" style="animation-delay: 0.1s;">Everything you need for meeting transcription, all on your Mac.</p>
+    </div>
+  </section>
+
+  <!-- Feature: Privacy -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="fade-in">
+          <h2 class="text-4xl font-bold mb-4 text-white drop-shadow-lg">100% Local Processing</h2>
+          <h3 class="text-xl text-white/80 mb-6 drop-shadow-lg">Your data never leaves your Mac</h3>
+          <p class="text-lg text-white/80 mb-6 drop-shadow-lg">
+            Unlike cloud-based competitors, On-Device Note Taker processes everything locally using Apple Intelligence. Your audio files, transcripts, and AI summaries stay on your device.
+          </p>
+          <ul class="space-y-3">
+            {[
+              'Zero cloud uploads',
+              'No external servers',
+              'No data mining',
+              'Works completely offline',
+              'Sandboxed and secure',
+            ].map((item, index) => (
+              <li class="flex items-center gap-3 text-lg text-white/90 drop-shadow-lg" style={`animation-delay: ${index * 0.1}s;`}>
+                <Check size={20} className="text-green-400" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 fade-in" style="animation-delay: 0.2s;">
+          <div class="flex items-center justify-center gap-8">
+            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border-2 border-green-400/50 shadow-lg text-center flex-1">
+              <div class="flex justify-center mb-4">
+                <Laptop size={48} className="text-white/90" />
+              </div>
+              <h4 class="font-semibold text-lg mb-2 text-white drop-shadow-lg">Your Mac</h4>
+              <p class="text-sm text-white/70 drop-shadow-lg">All processing happens here</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <Lock size={32} className="text-green-400" />
+            </div>
+            <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl border-2 border-white/20 text-center flex-1 relative opacity-50">
+              <div class="flex justify-center mb-4">
+                <Cloud size={48} className="text-white/60" />
+              </div>
+              <h4 class="font-semibold text-lg mb-2 text-white/70 drop-shadow-lg">Cloud</h4>
+              <p class="text-sm text-white/60 drop-shadow-lg">Nothing goes here</p>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-red-500 text-white rounded-full p-3">
+                  <X size={40} className="text-white" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: No Bots -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="space-y-6 fade-in">
+            <div class="bg-red-500/10 border-2 border-red-400/30 rounded-2xl p-8 backdrop-blur-sm">
+              <h4 class="font-semibold mb-4 text-white/90 text-lg drop-shadow-lg">Other Tools</h4>
+              <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-sm flex items-center gap-4 border border-white/10">
+                <div class="flex-shrink-0 bg-red-500/20 p-3 rounded-full">
+                  <ShieldOff size={28} className="text-red-400" />
+                </div>
+                <p class="text-white/90 text-lg font-medium drop-shadow-lg">"Recording Bot has joined the meeting"</p>
+              </div>
+            </div>
+            <div class="bg-green-500/10 border-2 border-green-400/30 rounded-2xl p-8 backdrop-blur-sm">
+              <h4 class="font-semibold mb-4 text-white/90 text-lg drop-shadow-lg">On-Device Note Taker</h4>
+              <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-sm flex items-center gap-4 border border-white/10">
+                <div class="flex-shrink-0 bg-green-500/20 p-3 rounded-full">
+                  <Check size={28} className="text-green-400" />
+                </div>
+                <p class="text-white/90 text-lg font-medium drop-shadow-lg">No bot. Just clean audio capture.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 fade-in">
+          <h2 class="text-4xl font-bold mb-4 text-white drop-shadow-lg">Direct Audio Capture</h2>
+          <h3 class="text-xl text-white/80 mb-6 drop-shadow-lg">No awkward meeting bots</h3>
+          <p class="text-lg text-white/80 mb-6 drop-shadow-lg">
+            Record meetings without the embarrassing "Recording Bot has joined" announcement. On-Device Note Taker captures system audio directly using ScreenCaptureKit.
+          </p>
+          <ul class="space-y-3">
+            {[
+              'Works with Zoom, Teams, Meet, and any app',
+              'No visible bot in meetings',
+              'Records both system audio and your mic',
+              'High-quality audio capture',
+              'You control when recording happens',
+            ].map((item, index) => (
+              <li class="flex items-center gap-3 text-lg text-white/90 drop-shadow-lg" style={`animation-delay: ${index * 0.1}s;`}>
+                <Check size={20} className="text-green-400" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: Speaker Identification -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="fade-in">
+          <h2 class="text-4xl font-bold mb-4 text-white drop-shadow-lg">Speaker Identification</h2>
+          <h3 class="text-xl text-white/80 mb-6 drop-shadow-lg">Proactively identifies different speakers</h3>
+          <p class="text-lg text-white/80 mb-6 drop-shadow-lg">
+            Automatically identifies different speakers and color-codes them in your transcript. Rename speakers and see speaking time percentages.
+          </p>
+          <ul class="space-y-3">
+            {[
+              'Automatic speaker detection',
+              'Color-coded transcripts',
+              'Easy speaker renaming',
+              'Speaking time statistics',
+              'FluidAudio diarization technology',
+            ].map((item, index) => (
+              <li class="flex items-center gap-3 text-lg text-white/90 drop-shadow-lg" style={`animation-delay: ${index * 0.1}s;`}>
+                <Check size={20} className="text-green-400" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="space-y-4 fade-in" style="animation-delay: 0.2s;">
+          <div class="bg-blue-500/10 border-l-4 border-blue-400 p-4 rounded-r-lg backdrop-blur-sm">
+            <div class="text-sm font-semibold text-blue-300 mb-1 drop-shadow-lg">Speaker 1 (42%)</div>
+            <p class="text-white/80 drop-shadow-lg">I think we should focus on the mobile app first.</p>
+          </div>
+          <div class="bg-green-500/10 border-l-4 border-green-400 p-4 rounded-r-lg backdrop-blur-sm">
+            <div class="text-sm font-semibold text-green-300 mb-1 drop-shadow-lg">Speaker 2 (35%)</div>
+            <p class="text-white/80 drop-shadow-lg">Agreed. The deadline is December 15th.</p>
+          </div>
+          <div class="bg-orange-500/10 border-l-4 border-orange-400 p-4 rounded-r-lg backdrop-blur-sm">
+            <div class="text-sm font-semibold text-orange-300 mb-1 drop-shadow-lg">Speaker 3 (23%)</div>
+            <p class="text-white/80 drop-shadow-lg">I'll start on the design mockups this week.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- More Features Grid -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16 text-white drop-shadow-lg fade-in">And Much More</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {
+            icon: Zap,
+            title: 'Real-Time Transcription',
+            description: 'Words appear as you speak using Apple\'s latest on-device speech recognition.',
+          },
+          {
+            icon: Sparkles,
+            title: 'AI Summaries',
+            description: 'Automatic action items, key points, and executive summaries.',
+          },
+          {
+            icon: MessageSquare,
+            title: 'Interactive Chat',
+            description: 'Ask questions about your recordings and get instant answers.',
+          },
+          {
+            icon: Upload,
+            title: 'Flexible Export',
+            description: 'Export to Markdown, text, JSON. Share via AirDrop, Messages, Mail.',
+          },
+          {
+            icon: Tag,
+            title: 'Tags & Organization',
+            description: 'Custom tags for easy organization. Search across all your documents.',
+          },
+          {
+            icon: Search,
+            title: 'Full-Text Search',
+            description: 'Find anything across all your recordings and transcripts.',
+          },
+        ].map((feature, index) => (
+          <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-all fade-in" style={`animation-delay: ${index * 0.1}s;`}>
+            <div class="mb-6">
+              <feature.icon size={iconSize} className="text-white/90" />
+            </div>
+            <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">{feature.title}</h3>
+            <p class="text-white/80 leading-relaxed drop-shadow-lg">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg fade-in">Ready to Take Control of Your Meetings?</h2>
+      <p class="text-xl mb-8 text-white/90 drop-shadow-lg fade-in" style="animation-delay: 0.1s;">Get started with On-Device Note Taker today.</p>
+      <a
+        href="/note-taker-download"
+        class="inline-block px-10 py-5 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-xl font-semibold text-lg border border-white/30 transition-all hover:shadow-2xl hover:scale-105 drop-shadow-lg fade-in"
+        style="animation-delay: 0.2s;"
+      >
+        Download for Mac - $9.99
+      </a>
+      <p class="mt-6 text-sm text-white/70 drop-shadow-lg fade-in" style="animation-delay: 0.3s;">macOS 15.0+ • M1/M2/M3 Mac recommended</p>
+    </div>
+  </section>
+</BaseLayout>
