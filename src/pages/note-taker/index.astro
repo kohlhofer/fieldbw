@@ -1,0 +1,342 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import NoteTakerNav from '../../components/NoteTakerNav.astro';
+import { Mic, Zap, Sparkles, Users, MessageSquare, Upload, Lock, ShieldOff, DollarSign, Check, X } from 'lucide-react';
+
+const iconSize = 40;
+---
+
+<BaseLayout
+  title="On-Device Note Taker – Privacy-First Meeting Transcription"
+  description="Transcribe meetings entirely on-device. No cloud, no bots, no subscriptions. 100% local processing with Apple Intelligence."
+  backgroundImage="/images/bg3.jpg"
+  gradientOverlay="linear-gradient(to bottom, rgba(0, 217, 255, 0.06), rgba(0, 217, 255, 0.06)), linear-gradient(to bottom, #0f172a, #020617)"
+  disableAnimation={true}
+>
+  <div class="relative min-h-screen flex flex-col">
+
+    <!-- Hero Section with Header -->
+    <div class="relative z-10 flex-1">
+      <!-- Top Navigation -->
+      <NoteTakerNav currentPage="overview" />
+
+      <!-- Hero Content -->
+      <div class="backdrop-blur-sm border-b border-white/10 px-6 md:px-12 pt-12 pb-24 md:pt-16 md:pb-32" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(37, 99, 235, 0.35));">
+        <div class="max-w-7xl mx-auto text-center">
+          <p class="text-sm font-light text-white/60 uppercase tracking-wide mb-4 drop-shadow-lg fade-in">
+            Local AI • Zero Cloud Uploads • No Subscription
+          </p>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-light text-white leading-tight mb-6 drop-shadow-lg fade-in">
+            On-Device Note Taker
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto mb-8 drop-shadow-lg fade-in" style="animation-delay: 0.1s;">
+            Transcribe meetings entirely on-device. No cloud, no bots, no subscriptions.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 fade-in" style="animation-delay: 0.3s;">
+            <a
+              href="/note-taker/download"
+              class="px-8 py-4 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-xl font-medium text-lg border border-white/30 transition-all hover:shadow-2xl hover:scale-105 drop-shadow-lg"
+            >
+              Download for Mac
+            </a>
+            <a
+              href="/note-taker/features"
+              class="px-8 py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white rounded-xl font-medium text-lg border border-white/20 transition-all drop-shadow-lg"
+            >
+              Learn More
+            </a>
+          </div>
+
+          <p class="text-white/70 drop-shadow-lg fade-in" style="animation-delay: 0.4s;">macOS 15.0+ • M1/M2/M3 Mac • $9.99 one-time</p>
+        </div>
+      </div>
+    </div>
+
+  <!-- Privacy Promise -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="text-center bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 fade-in">
+          <div class="flex justify-center mb-6">
+            <div class="p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+              <Lock size={48} className="text-white/90" />
+            </div>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4 drop-shadow-lg" style="color: #00D9FF;">Everything Stays Local</h3>
+          <p class="text-white/80 text-lg leading-relaxed drop-shadow-lg">
+            All processing happens on your Mac using Apple Intelligence. Your audio never leaves your device.
+          </p>
+        </div>
+
+        <div class="text-center bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 fade-in" style="animation-delay: 0.1s;">
+          <div class="flex justify-center mb-6">
+            <div class="p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+              <ShieldOff size={48} className="text-white/90" />
+            </div>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4 drop-shadow-lg" style="color: #00D9FF;">No Meeting Bots</h3>
+          <p class="text-white/80 text-lg leading-relaxed drop-shadow-lg">
+            Direct audio capture means no awkward "Recording Bot has joined" notifications in your meetings.
+          </p>
+        </div>
+
+        <div class="text-center bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 fade-in" style="animation-delay: 0.2s;">
+          <div class="flex justify-center mb-6">
+            <div class="p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+              <DollarSign size={48} className="text-white/90" />
+            </div>
+          </div>
+          <h3 class="text-2xl font-semibold mb-4 drop-shadow-lg" style="color: #00D9FF;">Buy Once, Own Forever</h3>
+          <p class="text-white/80 text-lg leading-relaxed drop-shadow-lg">
+            $9.99 one-time purchase. No monthly fees, no usage limits, no subscription tiers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white drop-shadow-lg fade-in">Built for <span style="color: #00D9FF;">Privacy</span>. Designed for Mac.</h2>
+      <p class="text-xl text-white/80 text-center mb-16 drop-shadow-lg fade-in" style="animation-delay: 0.1s;">Powerful AI transcription that respects your privacy</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 md:divide-x md:divide-white/20">
+        {[
+          {
+            title: 'Direct Audio Capture',
+            description: 'Records system audio from Zoom, Teams, Meet, and more. No visible bots, no awkward announcements.',
+          },
+          {
+            title: 'Real-Time Transcription',
+            description: 'Words appear as you speak using Apple\'s latest on-device speech recognition. Faster than real-time.',
+          },
+          {
+            title: 'AI Summaries',
+            description: 'Automatic key points and executive summaries generated with Apple Intelligence.',
+          },
+        ].map((feature, index) => (
+          <div class="space-y-4 border-l border-white/30 pl-6 md:border-l-0 md:border-white/20 md:px-6 lg:px-8 fade-in" style={`animation-delay: ${index * 0.1}s;`}>
+            <h3 class="text-xl font-semibold text-white drop-shadow-lg">{feature.title}</h3>
+            <p class="text-white/80 text-sm leading-relaxed drop-shadow-lg">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 md:divide-x md:divide-white/20 mt-12">
+        {[
+          {
+            title: 'Speaker Identification (Preview)',
+            description: 'Identifies different speakers with color-coded transcripts for easier reading.',
+          },
+          {
+            title: 'Interactive Chat',
+            description: 'Ask questions about your recordings and get instant answers. Multi-turn conversations supported.',
+          },
+          {
+            title: 'Native Export',
+            description: 'Share via AirDrop, Messages, Mail. Export as Markdown, text, audio, or JSON.',
+          },
+        ].map((feature, index) => (
+          <div class="space-y-4 border-l border-white/30 pl-6 md:border-l-0 md:border-white/20 md:px-6 lg:px-8 fade-in" style={`animation-delay: ${(index + 3) * 0.1}s;`}>
+            <h3 class="text-xl font-semibold text-white drop-shadow-lg">{feature.title}</h3>
+            <p class="text-white/80 text-sm leading-relaxed drop-shadow-lg">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-white drop-shadow-lg fade-in">Get Started in Minutes</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center fade-in">
+          <div class="w-16 h-16 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 drop-shadow-lg">
+            1
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">Download & Install</h3>
+          <p class="text-white/80 drop-shadow-lg">Available on the Mac App Store. One-click installation.</p>
+        </div>
+
+        <div class="text-center fade-in" style="animation-delay: 0.1s;">
+          <div class="w-16 h-16 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 drop-shadow-lg">
+            2
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">Grant Permissions</h3>
+          <p class="text-white/80 drop-shadow-lg">Allow screen recording to capture system audio. All stays local.</p>
+        </div>
+
+        <div class="text-center fade-in" style="animation-delay: 0.2s;">
+          <div class="w-16 h-16 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 drop-shadow-lg">
+            3
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">Record Meetings</h3>
+          <p class="text-white/80 drop-shadow-lg">Start recording. Transcription happens in real-time.</p>
+        </div>
+
+        <div class="text-center fade-in" style="animation-delay: 0.3s;">
+          <div class="w-16 h-16 bg-white/20 backdrop-blur-sm border border-white/30 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4 drop-shadow-lg">
+            4
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">Get AI Summaries</h3>
+          <p class="text-white/80 drop-shadow-lg">Instant summaries, action items, and searchable transcripts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 text-white drop-shadow-lg fade-in">How We Compare</h2>
+      <p class="text-xl text-center mb-16 drop-shadow-lg fade-in" style="animation-delay: 0.1s; color: #00D9FF;">The only transcription tool that never sees your data</p>
+
+      <div class="overflow-x-auto fade-in" style="animation-delay: 0.2s;">
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10">
+          <table class="w-full">
+            <thead>
+              <tr class="bg-white/10">
+                <th class="px-6 py-4 text-left font-semibold text-white/90 drop-shadow-lg">Feature</th>
+                <th class="px-6 py-4 text-left font-semibold bg-white/20 text-white drop-shadow-lg">On-Device Note Taker</th>
+                <th class="px-6 py-4 text-left font-semibold text-white/90 drop-shadow-lg" colspan="3">Others</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/10">
+              <tr>
+                <td class="px-6 py-4 text-white/90 drop-shadow-lg">Privacy</td>
+                <td class="px-6 py-4 bg-white/10 text-white/90 drop-shadow-lg"><span style="color: #00D9FF;" class="font-bold">✓</span> 100% Local</td>
+                <td class="px-6 py-4 text-white/70 drop-shadow-lg" colspan="3"><span class="text-red-400 font-bold">✗</span> Cloud</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-white/90 drop-shadow-lg">Pricing</td>
+                <td class="px-6 py-4 bg-white/10 text-white/90 drop-shadow-lg"><span style="color: #00D9FF;" class="font-bold">✓</span> $9.99 once</td>
+                <td class="px-6 py-4 text-white/70 drop-shadow-lg" colspan="3">$10-17/mo</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-white/90 drop-shadow-lg">Meeting Bot</td>
+                <td class="px-6 py-4 bg-white/10 text-white/90 drop-shadow-lg"><span style="color: #00D9FF;" class="font-bold">✓</span> None</td>
+                <td class="px-6 py-4 text-white/70 drop-shadow-lg" colspan="3"><span class="text-red-400 font-bold">✗</span> Visible</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-white/90 drop-shadow-lg">Offline Mode</td>
+                <td class="px-6 py-4 bg-white/10 text-white/90 drop-shadow-lg"><span style="color: #00D9FF;" class="font-bold">✓</span> Yes</td>
+                <td class="px-6 py-4 text-white/70 drop-shadow-lg" colspan="3"><span class="text-red-400 font-bold">✗</span> No</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-white/90 drop-shadow-lg">AI Features</td>
+                <td class="px-6 py-4 bg-white/10 text-white/90 drop-shadow-lg"><span style="color: #00D9FF;" class="font-bold">✓</span> On-device</td>
+                <td class="px-6 py-4 text-white/70 drop-shadow-lg" colspan="3">Cloud</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-white/90 drop-shadow-lg">Data Ownership</td>
+                <td class="px-6 py-4 bg-white/10 text-white/90 drop-shadow-lg"><span style="color: #00D9FF;" class="font-bold">✓</span> You own</td>
+                <td class="px-6 py-4 text-white/70 drop-shadow-lg" colspan="3">Shared</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-white drop-shadow-lg fade-in">Frequently Asked Questions</h2>
+
+      <div class="max-w-3xl mx-auto divide-y divide-white/20">
+        <div class="py-8 fade-in">
+          <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">Does it work with Zoom, Teams, and Google Meet?</h3>
+          <p class="text-white/80 leading-relaxed drop-shadow-lg">
+            Yes! On-Device Note Taker captures system audio directly, so it works with Zoom, Microsoft Teams, Google Meet, and any other meeting platform that plays audio through your Mac.
+          </p>
+        </div>
+
+        <div class="py-8 fade-in" style="animation-delay: 0.1s;">
+          <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">What Macs are supported?</h3>
+          <p class="text-white/80 leading-relaxed drop-shadow-lg">
+            Requires macOS 15.0 (Sequoia) or later. Works best on M1, M2, or M3 Macs for optimal performance with Apple Intelligence features.
+          </p>
+        </div>
+
+        <div class="py-8 fade-in" style="animation-delay: 0.2s;">
+          <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">How is this different from others?</h3>
+          <p class="text-white/80 leading-relaxed drop-shadow-lg">
+            Unlike cloud-based competitors, everything happens on your Mac. No audio uploads, no meeting bots, no monthly subscriptions. Plus you own it forever for just $9.99.
+          </p>
+        </div>
+
+        <div class="py-8 fade-in" style="animation-delay: 0.3s;">
+          <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">Is it really private?</h3>
+          <p class="text-white/80 leading-relaxed drop-shadow-lg">
+            Yes. All transcription and AI processing happens locally using Apple's on-device APIs. Your audio never leaves your Mac. We can't access your data even if we wanted to—it's technically impossible.
+          </p>
+        </div>
+
+        <div class="py-8 fade-in" style="animation-delay: 0.4s;">
+          <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">Can I try it before buying?</h3>
+          <p class="text-white/80 leading-relaxed drop-shadow-lg">
+            The Mac App Store offers a 14-day refund policy, no questions asked. We're confident you'll love it.
+          </p>
+        </div>
+
+        <div class="py-8 fade-in" style="animation-delay: 0.5s;">
+          <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">Why Mac-only?</h3>
+          <p class="text-white/80 leading-relaxed drop-shadow-lg">
+            Apple's on-device AI is the only way to provide this level of privacy without compromising quality. Building exclusively for Mac means we can be the best transcription tool for Mac users.
+          </p>
+        </div>
+
+        <div class="py-8 fade-in" style="animation-delay: 0.6s;">
+          <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">How does Speaker Identification work? (Preview)</h3>
+          <p class="text-white/80 leading-relaxed drop-shadow-lg">
+            Apple Intelligence doesn't yet natively support speaker recognition, so we ship a bundled model that downloads on first launch and runs locally on your Mac from then on. This feature is currently in Preview and may not always accurately identify speakers.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg fade-in">Own Your Meeting Notes. Own Your Privacy.</h2>
+      <p class="text-xl mb-8 text-white/90 drop-shadow-lg fade-in" style="animation-delay: 0.1s;">One-time purchase. No subscriptions. No cloud uploads.</p>
+      <a
+        href="/note-taker/download"
+        class="inline-block px-10 py-5 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-xl font-semibold text-lg border border-white/30 transition-all hover:shadow-2xl hover:scale-105 drop-shadow-lg fade-in"
+        style="animation-delay: 0.2s;"
+      >
+        Download for Mac - $9.99
+      </a>
+      <p class="mt-6 text-sm text-white/70 drop-shadow-lg fade-in" style="animation-delay: 0.3s;">14-day money-back guarantee via Mac App Store</p>
+    </div>
+  </section>
+  </div>
+
+  <!-- Links Section -->
+  <div class="relative z-10 border-t border-white/10 py-8 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-6 text-sm text-white/70">
+      <a href="/support" class="hover:text-white transition-colors">Support</a>
+      <span class="text-white/30">•</span>
+      <a href="/note-taker/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a>
+      <span class="text-white/30">•</span>
+      <a href="/note-taker/terms" class="hover:text-white transition-colors">Terms of Service</a>
+    </div>
+  </div>
+
+  <!-- Footer with black background -->
+  <footer class="bg-black py-8 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-center text-white/30 text-xs tracking-wide">
+        <a href="/" class="font-semibold hover:text-white/50 transition-colors">Field Bureau + Werkstatt</a>
+        <span class="mx-2">•</span>
+        © {new Date().getFullYear()} Field Bureau & Werkstatt LLC. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</BaseLayout>

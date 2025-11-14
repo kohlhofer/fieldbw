@@ -1,0 +1,296 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Privacy Policy - On-Device Note Taker - Field Bureau + Werkstatt"
+  description="Privacy Policy for On-Device Note Taker app"
+  backgroundImage="/images/bg3.jpg"
+  gradientOverlay="linear-gradient(to bottom, rgba(0, 217, 255, 0.06), rgba(0, 217, 255, 0.06)), linear-gradient(to bottom, #0f172a, #020617)"
+  disableAnimation={true}
+>
+  <div class="relative min-h-screen flex flex-col">
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="relative z-10 px-6 md:px-12 py-6">
+      <div class="flex items-center space-x-2 text-sm text-white/80 drop-shadow-lg">
+        <a href="/note-taker" class="hover:text-white transition-colors">On-Device Note Taker</a>
+        <span class="text-white/40">/</span>
+        <span class="text-white">Privacy Policy</span>
+      </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="relative z-10 px-6 md:px-12 py-12 flex-1">
+      <div class="max-w-4xl mx-auto">
+
+        <!-- Header -->
+        <div class="text-center mb-16 animate-fade-in-up" style="opacity: 0;">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-4 drop-shadow-lg">
+            Privacy Policy
+          </h1>
+          <p class="text-lg text-white/70 drop-shadow-lg">
+            On-Device Note Taker
+          </p>
+          <p class="text-sm text-white/50 mt-4 drop-shadow-lg">
+            Last updated: November 14, 2025
+          </p>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="space-y-8 animate-fade-in-up" style="animation-delay: 200ms; opacity: 0;">
+
+          <section>
+            <h2 class="text-2xl font-medium text-white mb-4 drop-shadow-lg">Overview</h2>
+            <p class="text-white/80 leading-relaxed mb-6 drop-shadow-lg">
+              On-Device Note Taker ("the App") is designed with privacy as its foundation. This Privacy Policy explains how we handle information when you use our macOS application for recording, transcribing, and organizing notes using on-device AI processing.
+            </p>
+            <div class="border border-white/30 rounded-xl p-6 backdrop-blur-sm bg-white/10">
+              <div class="flex items-start space-x-3">
+                <svg class="w-6 h-6 text-white flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                  <h3 class="text-lg font-medium text-white mb-2 drop-shadow-lg">100% Local Processing</h3>
+                  <p class="text-white/80 drop-shadow-lg">
+                    <strong>We do not collect, store, or transmit any personal data or content.</strong> All transcription, AI processing, and data storage happens entirely on your Mac. Nothing is sent to cloud servers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-medium text-white mb-4 drop-shadow-lg">Information We Do Not Collect</h2>
+            <p class="text-white/80 leading-relaxed mb-4 drop-shadow-lg">
+              On-Device Note Taker does not collect, store, or transmit:
+            </p>
+            <ul class="list-disc list-inside text-white/80 leading-relaxed space-y-2 drop-shadow-lg">
+              <li>Personal identification information</li>
+              <li>Audio recordings or transcription content</li>
+              <li>Usage analytics or telemetry data</li>
+              <li>Meeting notes, documents, or summaries</li>
+              <li>System information or device identifiers</li>
+              <li>Location data</li>
+              <li>Network activity or browsing history</li>
+              <li>Any AI-generated content or chat interactions</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-medium text-white mb-4 drop-shadow-lg">Local Data Processing</h2>
+            <p class="text-white/80 leading-relaxed mb-6 drop-shadow-lg">
+              The App processes the following information locally on your device:
+            </p>
+
+            <div class="space-y-4">
+              <div class="border border-white/20 rounded-xl p-6 backdrop-blur-sm bg-white/5">
+                <h3 class="text-lg font-medium text-white mb-3 drop-shadow-lg">Audio Recordings</h3>
+                <p class="text-white/80 mb-2 drop-shadow-lg">
+                  <strong>What:</strong> Audio captured from your microphone and/or system audio
+                </p>
+                <p class="text-white/80 mb-2 drop-shadow-lg">
+                  <strong>Purpose:</strong> To transcribe conversations, meetings, and notes
+                </p>
+                <p class="text-white/80 drop-shadow-lg">
+                  <strong>Storage:</strong> Stored locally on your Mac, encrypted by macOS file system. Never uploaded to cloud servers.
+                </p>
+              </div>
+
+              <div class="border border-white/20 rounded-xl p-6 backdrop-blur-sm bg-white/5">
+                <h3 class="text-lg font-medium text-white mb-3 drop-shadow-lg">Transcripts and AI Analysis</h3>
+                <p class="text-white/80 mb-2 drop-shadow-lg">
+                  <strong>What:</strong> Text transcriptions, summaries, action items, and chat responses
+                </p>
+                <p class="text-white/80 mb-2 drop-shadow-lg">
+                  <strong>Purpose:</strong> To provide searchable, organized notes with AI-powered insights
+                </p>
+                <p class="text-white/80 drop-shadow-lg">
+                  <strong>Storage:</strong> All processing uses Apple Intelligence APIs running entirely on-device. Results stored locally.
+                </p>
+              </div>
+
+              <div class="border border-white/20 rounded-xl p-6 backdrop-blur-sm bg-white/5">
+                <h3 class="text-lg font-medium text-white mb-3 drop-shadow-lg">App Settings</h3>
+                <p class="text-white/80 mb-2 drop-shadow-lg">
+                  <strong>What:</strong> Audio source preferences, speaker labels, custom tags
+                </p>
+                <p class="text-white/80 mb-2 drop-shadow-lg">
+                  <strong>Purpose:</strong> To remember your configuration between app launches
+                </p>
+                <p class="text-white/80 drop-shadow-lg">
+                  <strong>Storage:</strong> Stored locally in macOS preferences
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-medium text-white mb-4 drop-shadow-lg">Permissions</h2>
+            <p class="text-white/80 leading-relaxed mb-6 drop-shadow-lg">
+              The App may request the following system permissions:
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3 p-4 border border-white/20 rounded-xl backdrop-blur-sm bg-white/5">
+                <svg class="w-6 h-6 text-white flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/>
+                </svg>
+                <div>
+                  <h4 class="font-medium text-white drop-shadow-lg">Microphone Access (Required)</h4>
+                  <p class="text-white/80 text-sm drop-shadow-lg">
+                    Allows the app to record audio for transcription. All recordings stay on your device.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 p-4 border border-white/20 rounded-xl backdrop-blur-sm bg-white/5">
+                <svg class="w-6 h-6 text-white flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <div>
+                  <h4 class="font-medium text-white drop-shadow-lg">Screen Recording (Optional)</h4>
+                  <p class="text-white/80 text-sm drop-shadow-lg">
+                    Only requested if you choose to capture system audio. Used exclusively for audio capture from apps like Zoom or FaceTime.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start space-x-3 p-4 border border-white/20 rounded-xl backdrop-blur-sm bg-white/5">
+                <svg class="w-6 h-6 text-white flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <div>
+                  <h4 class="font-medium text-white drop-shadow-lg">File System Access (Optional)</h4>
+                  <p class="text-white/80 text-sm drop-shadow-lg">
+                    Only requested when importing audio files or exporting transcripts. You choose which files to access.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-white/70 text-sm mt-4 drop-shadow-lg">
+              You can revoke these permissions at any time through macOS System Settings → Privacy & Security.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-medium text-white mb-4 drop-shadow-lg">Apple Intelligence Integration</h2>
+            <p class="text-white/80 leading-relaxed mb-4 drop-shadow-lg">
+              On-Device Note Taker uses Apple Intelligence APIs for AI-powered features:
+            </p>
+            <ul class="list-disc list-inside text-white/80 leading-relaxed space-y-2 drop-shadow-lg">
+              <li>All AI processing happens on your Mac using Apple's on-device models</li>
+              <li>No data is sent to Apple's servers or any external AI services</li>
+              <li>Transcription, summaries, and chat responses are generated locally</li>
+              <li>Apple Intelligence follows Apple's strict privacy standards</li>
+            </ul>
+            <p class="text-white/80 leading-relaxed mt-4 drop-shadow-lg">
+              Learn more about Apple Intelligence privacy at <a href="https://www.apple.com/privacy/" target="_blank" class="text-white underline hover:text-white/70 transition-colors">apple.com/privacy</a>.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-medium text-white mb-4 drop-shadow-lg">App Store Privacy</h2>
+            <p class="text-white/80 leading-relaxed mb-4 drop-shadow-lg">
+              On-Device Note Taker is distributed through the Mac App Store and follows Apple's strict privacy guidelines:
+            </p>
+            <ul class="list-disc list-inside text-white/80 leading-relaxed space-y-2 drop-shadow-lg">
+              <li>The app runs in a secure sandbox environment</li>
+              <li>All system access is controlled by macOS permissions</li>
+              <li>No data is shared with third parties</li>
+              <li>No advertising or tracking technologies are used</li>
+              <li>No network connections are made for data collection</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-medium text-white mb-4 drop-shadow-lg">Data Security</h2>
+            <p class="text-white/80 leading-relaxed mb-4 drop-shadow-lg">
+              Since all data processing happens locally on your Mac:
+            </p>
+            <ul class="list-disc list-inside text-white/80 leading-relaxed space-y-2 drop-shadow-lg">
+              <li>Your recordings and transcripts are protected by macOS file system encryption</li>
+              <li>No data transmission means no risk of interception or breaches</li>
+              <li>The app runs in a sandboxed environment for added security</li>
+              <li>Only you can access your notes and recordings</li>
+              <li>You maintain complete control over your data at all times</li>
+              <li>Data can be backed up using Time Machine or iCloud Drive (if you choose)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-medium text-white mb-4 drop-shadow-lg">Data Sharing and Export</h2>
+            <p class="text-white/80 leading-relaxed mb-4 drop-shadow-lg">
+              You have complete control over sharing your data:
+            </p>
+            <ul class="list-disc list-inside text-white/80 leading-relaxed space-y-2 drop-shadow-lg">
+              <li>Export transcripts as Markdown, text, or JSON files</li>
+              <li>Share via AirDrop, Messages, or email—you decide who receives your data</li>
+              <li>All sharing happens through standard macOS sharing mechanisms</li>
+              <li>No automatic uploading or sharing occurs</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-medium text-white mb-4 drop-shadow-lg">Children's Privacy</h2>
+            <p class="text-white/80 leading-relaxed drop-shadow-lg">
+              Since we do not collect any personal information or content, the App is safe for users of all ages. No special provisions for children's data are needed as no data collection occurs.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-medium text-white mb-4 drop-shadow-lg">Changes to Privacy Policy</h2>
+            <p class="text-white/80 leading-relaxed drop-shadow-lg">
+              We may update this Privacy Policy from time to time. Any changes will be reflected in the "Last updated" date above. Continued use of the App after changes constitutes acceptance of the updated policy.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-medium text-white mb-4 drop-shadow-lg">Contact Information</h2>
+            <p class="text-white/80 leading-relaxed drop-shadow-lg">
+              If you have questions about this Privacy Policy or our privacy practices, please contact us at <a href="/support" class="text-white underline hover:text-white/70 transition-colors">support</a>.
+            </p>
+          </section>
+
+          <div class="border border-white/30 rounded-xl p-6 backdrop-blur-sm bg-white/10">
+            <div class="flex items-start space-x-3">
+              <svg class="w-6 h-6 text-white flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+              <div>
+                <h3 class="text-lg font-medium text-white mb-2 drop-shadow-lg">Your Privacy Is Our Priority</h3>
+                <p class="text-white/80 text-sm drop-shadow-lg">
+                  On-Device Note Taker is designed to work entirely on your Mac without any data collection, tracking, or external communication. Your conversations, notes, and content never leave your device.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Links Section -->
+    <div class="relative z-10 border-t border-white/10 py-8 px-6 md:px-12">
+      <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-6 text-sm text-white/70">
+        <a href="/support" class="hover:text-white transition-colors">Support</a>
+        <span class="text-white/30">•</span>
+        <a href="/note-taker/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a>
+        <span class="text-white/30">•</span>
+        <a href="/note-taker/terms" class="hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer with black background -->
+  <footer class="bg-black py-8 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-center text-white/30 text-xs tracking-wide">
+        <a href="/" class="font-semibold hover:text-white/50 transition-colors">Field Bureau + Werkstatt</a>
+        <span class="mx-2">•</span>
+        © {new Date().getFullYear()} Field Bureau & Werkstatt LLC. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</BaseLayout>

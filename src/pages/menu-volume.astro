@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Menu Volume - System & Music - Field Bureau + Werkstatt"
+  description="Control Mac and Music volumes separately and independently from your menu bar"
+  gradientOverlay="linear-gradient(to bottom, rgba(20, 184, 166, 0.12), rgba(13, 148, 136, 0.12)), linear-gradient(to bottom, #0f172a, #020617)"
+>
+  <div class="relative min-h-screen flex flex-col">
+
+    <!-- Hero Section -->
+    <div class="relative z-10 flex-1">
+      <!-- Main Header -->
+      <div class="backdrop-blur-sm border-b border-white/10 px-6 md:px-12 pt-12 pb-12" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.25), rgba(239, 68, 68, 0.25));">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12 items-center">
+          <!-- App Icon -->
+          <div class="flex justify-center lg:justify-end order-1 lg:order-1 lg:col-span-2">
+            <div class="relative">
+              <img
+                src="/images/menu-volume-AppIcon.png"
+                alt="Menu Volume App Icon"
+                class="w-56 h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-3xl"
+                style="filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.3));"
+              />
+            </div>
+          </div>
+
+          <!-- Title and Description -->
+          <div class="text-center lg:text-left space-y-6 order-2 lg:order-2 lg:col-span-3 animate-fade-in-up" style="opacity: 0;">
+            <div class="space-y-4">
+              <div class="text-sm font-semibold text-white/60 uppercase tracking-wide">
+                macOS App
+              </div>
+              <h1 class="text-5xl md:text-6xl lg:text-7xl font-light text-white leading-tight drop-shadow-lg">
+                Menu Volume<br/><span class="text-white/90">– System & Music</span>
+              </h1>
+
+              <p class="text-xl md:text-2xl text-white/90 leading-relaxed drop-shadow-lg">
+                Control Mac and Music volumes separately and independently from one convenient menu bar location
+              </p>
+            </div>
+
+            <!-- Download Button -->
+            <div class="pt-4">
+              <a
+                href="https://apps.apple.com/us/app/menu-volume-system-music/id6753698645"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-white/10 backdrop-blur-sm border border-white/30 rounded-xl hover:bg-white/20 hover:border-white/40 transition-all duration-200 shadow-lg"
+              >
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                Download from App Store
+              </a>
+              <p class="text-sm text-white/50 mt-3 drop-shadow-lg">Requires macOS 10.15 or later</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-6 md:px-12 py-12">
+        <div class="max-w-6xl mx-auto">
+          <!-- Features Grid -->
+          <div class="mb-20">
+          <h2 class="text-3xl md:text-4xl font-light text-white mb-6 text-center drop-shadow-lg">
+            Simple, Powerful, Convenient
+          </h2>
+          <p class="text-xl text-white/80 max-w-3xl mx-auto text-center mb-12 drop-shadow-lg">
+            Easy-to-use volume controls for your Mac. Perfect for quick adjustments while listening to music.
+          </p>
+
+          <div class="grid md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-white/20">
+            <!-- System Volume Control -->
+            <div class="space-y-4 border-l border-white/30 pl-6 md:border-l-0 md:pr-6 lg:pr-8 text-center animate-fade-in-up" style="animation-delay: 200ms; opacity: 0;">
+              <div class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center mx-auto">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-medium text-white drop-shadow-lg">System volume, instantly</h3>
+              <p class="text-white/80 text-sm leading-relaxed drop-shadow-lg">
+                Smooth, responsive slider in your menu bar.
+              </p>
+            </div>
+
+            <!-- Apple Music Integration -->
+            <div class="space-y-4 border-l border-white/30 pl-6 md:px-6 lg:px-8 text-center animate-fade-in-up" style="animation-delay: 350ms; opacity: 0;">
+              <div class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center mx-auto">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-medium text-white drop-shadow-lg">Apple Music volume, separate</h3>
+              <p class="text-white/80 text-sm leading-relaxed drop-shadow-lg">
+                Adjust independently from Mac volume.
+              </p>
+            </div>
+
+            <!-- Launch at Login -->
+            <div class="space-y-4 border-l border-white/30 pl-6 md:pl-6 lg:pl-8 text-center animate-fade-in-up" style="animation-delay: 500ms; opacity: 0;">
+              <div class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center mx-auto">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-medium text-white drop-shadow-lg">Launch at login</h3>
+              <p class="text-white/80 text-sm leading-relaxed drop-shadow-lg">
+                Set it and forget it.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Screenshots Section -->
+        <div class="mb-20">
+          <h2 class="text-3xl md:text-4xl font-light text-white mb-12 text-center drop-shadow-lg">
+            See It In Action
+          </h2>
+          <p class="text-xl text-white/80 max-w-3xl mx-auto text-center mb-12 drop-shadow-lg">
+            A clean, intuitive interface that stays out of your way while giving you full control.
+          </p>
+
+          <!-- Text Blocks Side by Side -->
+          <div class="grid lg:grid-cols-2 gap-12 mb-8">
+            <div class="text-center lg:text-left animate-fade-in-up" style="animation-delay: 200ms; opacity: 0;">
+              <h3 class="text-2xl font-light text-white mb-4 drop-shadow-lg">Easy Configuration</h3>
+              <p class="text-white/80 leading-relaxed drop-shadow-lg">
+                Simple settings let you enable Apple Music integration and launch at login. Everything works right out of the box.
+              </p>
+            </div>
+
+            <div class="text-center lg:text-left animate-fade-in-up" style="animation-delay: 300ms; opacity: 0;">
+              <h3 class="text-2xl font-light text-white mb-4 drop-shadow-lg">Independent Control</h3>
+              <p class="text-white/80 leading-relaxed drop-shadow-lg">
+                Separate sliders for system and Apple Music volume give you precise control over each audio source independently.
+              </p>
+            </div>
+          </div>
+
+          <!-- Full Width Screenshot -->
+          <div class="mb-12 animate-fade-in-up" style="animation-delay: 400ms; opacity: 0;">
+            <img
+              src="/images/menu-volume-screen.png"
+              alt="Menu Volume Interface"
+              class="w-full rounded-2xl"
+              style="filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));"
+            />
+          </div>
+        </div>
+
+        <!-- What Makes It Different Section -->
+        <div class="mb-20">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-light text-white mb-4 drop-shadow-lg">
+              What makes it different
+            </h2>
+            <p class="text-xl text-white/80 drop-shadow-lg">
+              A few key differences from the stock sound menu.
+            </p>
+          </div>
+
+          <div class="space-y-6 max-w-4xl mx-auto">
+            <div class="flex items-start space-x-4 p-6 backdrop-blur-sm bg-white/5 border border-white/20 rounded-xl animate-fade-in-up" style="animation-delay: 200ms; opacity: 0;">
+              <div class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-medium text-white mb-2 drop-shadow-lg">Separate Music volume</h4>
+                <p class="text-white/80 leading-relaxed drop-shadow-lg">The stock menu only controls overall Mac volume. Menu Volume gives you a <strong>second slider just for Apple Music</strong> — not available in the stock menu.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-6 backdrop-blur-sm bg-white/5 border border-white/20 rounded-xl animate-fade-in-up" style="animation-delay: 300ms; opacity: 0;">
+              <div class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-medium text-white mb-2 drop-shadow-lg">Always visible sliders</h4>
+                <p class="text-white/80 leading-relaxed drop-shadow-lg">See both volume levels at a glance. The stock menu hides the slider until you click — ours shows current levels instantly.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4 p-6 backdrop-blur-sm bg-white/5 border border-white/20 rounded-xl animate-fade-in-up" style="animation-delay: 400ms; opacity: 0;">
+              <div class="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-xl font-medium text-white mb-2 drop-shadow-lg">Designed for music listeners</h4>
+                <p class="text-white/80 leading-relaxed drop-shadow-lg">Control both volumes separately—adjust either one without affecting the other.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Permissions Section -->
+        <div class="mb-20">
+          <div class="max-w-3xl mx-auto text-center animate-fade-in-up" style="animation-delay: 200ms; opacity: 0;">
+            <div class="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </div>
+            <h3 class="text-lg font-medium text-white mb-3 drop-shadow-lg">Permissions</h3>
+            <p class="text-white/80 drop-shadow-lg">
+              When you first use Music controls, macOS asks to let Menu Volume control Apple Music. We only request access to Music — nothing else.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="mb-20">
+          <h2 class="text-3xl md:text-4xl font-light text-white mb-12 text-center drop-shadow-lg">
+            Frequently Asked Questions
+          </h2>
+
+          <div class="max-w-4xl mx-auto divide-y divide-white/20">
+            <!-- FAQ Item 1 -->
+            <div class="py-8 animate-fade-in-up" style="animation-delay: 100ms; opacity: 0;">
+              <h3 class="text-xl font-medium text-white mb-3 drop-shadow-lg">
+                Can I control system volume and Apple Music volume separately?
+              </h3>
+              <p class="text-white/80 leading-relaxed drop-shadow-lg">
+                Yes! This is one of the key features. The menu bar interface provides separate sliders for system volume and Apple Music volume. You can adjust either one independently without affecting the other.
+              </p>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="py-8 animate-fade-in-up" style="animation-delay: 200ms; opacity: 0;">
+              <h3 class="text-xl font-medium text-white mb-3 drop-shadow-lg">
+                Does the app affect my Mac's performance or battery life?
+              </h3>
+              <p class="text-white/80 leading-relaxed drop-shadow-lg">
+                No, Menu Volume is designed to be lightweight and efficient. It runs quietly in the background with negligible impact on your Mac's performance or battery life, using minimal system resources and permissions.
+              </p>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="py-8 animate-fade-in-up" style="animation-delay: 300ms; opacity: 0;">
+              <h3 class="text-xl font-medium text-white mb-3 drop-shadow-lg">
+                Does it support Spotify?
+              </h3>
+              <p class="text-white/80 leading-relaxed drop-shadow-lg">
+                Not yet. (Planned.)
+              </p>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="py-8 animate-fade-in-up" style="animation-delay: 400ms; opacity: 0;">
+              <h3 class="text-xl font-medium text-white mb-3 drop-shadow-lg">
+                Does it change other apps' volumes individually?
+              </h3>
+              <p class="text-white/80 leading-relaxed drop-shadow-lg">
+                No—only Music has its own slider; everything else follows your Mac volume.
+              </p>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="py-8 animate-fade-in-up" style="animation-delay: 500ms; opacity: 0;">
+              <h3 class="text-xl font-medium text-white mb-3 drop-shadow-lg">
+                What data does the app collect?
+              </h3>
+              <p class="text-white/80 leading-relaxed drop-shadow-lg">
+                None. Menu Volume doesn't collect, store, or transmit any personal data. Everything runs locally on your Mac, and no information is sent to external servers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="relative z-10 py-24">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-4xl md:text-5xl font-light text-white mb-6 drop-shadow-lg animate-fade-in-up" style="opacity: 0;">
+          Ready for Better Volume Control?
+        </h2>
+        <p class="text-xl text-white/90 mb-8 drop-shadow-lg animate-fade-in-up" style="animation-delay: 0.1s; opacity: 0;">
+          Download Menu Volume and control both volumes independently.
+        </p>
+        <a
+          href="https://apps.apple.com/us/app/menu-volume-system-music/id6753698645"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block px-10 py-5 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white rounded-xl font-semibold text-lg border border-white/30 transition-all hover:shadow-2xl hover:scale-105 drop-shadow-lg animate-fade-in-up"
+          style="animation-delay: 0.2s; opacity: 0;"
+        >
+          Download from App Store
+        </a>
+        <p class="mt-6 text-sm text-white/70 drop-shadow-lg animate-fade-in-up" style="animation-delay: 0.3s; opacity: 0;">Requires macOS 10.15 or later</p>
+      </div>
+    </section>
+
+    <!-- Links Section -->
+    <div class="relative z-10 border-t border-white/10 py-8 px-6 md:px-12">
+      <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-6 text-sm text-white/70">
+        <a href="/support" class="hover:text-white transition-colors">Support</a>
+        <span class="text-white/30">•</span>
+        <a href="/menu-volume-privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+        <span class="text-white/30">•</span>
+        <a href="/menu-volume-terms" class="hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer with black background -->
+  <footer class="bg-black py-8 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-center text-white/30 text-xs tracking-wide">
+        <a href="/" target="_blank" rel="noopener noreferrer" class="font-semibold hover:text-white/50 transition-colors">Field Bureau + Werkstatt</a>
+        <span class="mx-2">•</span>
+        © {new Date().getFullYear()} Field Bureau & Werkstatt LLC. All rights reserved.
+      </p>
+    </div>
+  </footer>
+</BaseLayout>

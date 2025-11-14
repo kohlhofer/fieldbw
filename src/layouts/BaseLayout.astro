@@ -6,13 +6,15 @@ interface Props {
   description?: string;
   backgroundImage?: string;
   gradientOverlay?: string;
+  disableAnimation?: boolean;
 }
 
 const {
   title = 'Field Bureau + Werkstatt',
   description = 'Field Bureau + Werkstatt - Innovation and Craftsmanship',
   backgroundImage,
-  gradientOverlay
+  gradientOverlay,
+  disableAnimation = false
 } = Astro.props;
 
 // Combine background image with gradient overlay
@@ -20,6 +22,8 @@ const backgroundStyle = backgroundImage && gradientOverlay
   ? `background-image: ${gradientOverlay}, url('${backgroundImage}');`
   : backgroundImage
   ? `background-image: url('${backgroundImage}');`
+  : gradientOverlay
+  ? `background-image: ${gradientOverlay};`
   : '';
 ---
 
@@ -65,14 +69,14 @@ const backgroundStyle = backgroundImage && gradientOverlay
 
     <title>{title}</title>
   </head>
-  <body class="font-body min-h-screen animate-fade-in" style={`
+  <body class={`font-body min-h-screen ${!disableAnimation ? 'animate-fade-in' : ''}`} style={`
     ${backgroundStyle}
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
-    opacity: 0;
+    ${!disableAnimation ? 'opacity: 0;' : 'opacity: 1;'}
   `}>
     <!-- Content wrapper with safe area padding -->
     <div class="relative min-h-screen" style="
