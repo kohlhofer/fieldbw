@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import NoteTakerNav from '../components/NoteTakerNav.astro';
 import { FileText, Download, Laptop, Cpu, HardDrive, Mic, Video, Users, MessageSquare, Headphones } from 'lucide-react';
 ---
 
@@ -7,31 +8,14 @@ import { FileText, Download, Laptop, Cpu, HardDrive, Mic, Video, Users, MessageS
   title="Download – On-Device Note Taker"
   description="Download On-Device Note Taker for macOS. Requires macOS 15.0+ (Sequoia). Optimized for M1, M2, M3 Macs."
   backgroundImage="/images/bg3.jpg"
-  gradientOverlay="linear-gradient(to bottom, #4a4a4a, #2a2a2a)"
+  gradientOverlay="linear-gradient(to bottom, rgba(0, 217, 255, 0.06), rgba(0, 217, 255, 0.06)), linear-gradient(to bottom, #0f172a, #020617)"
+  disableAnimation={true}
 >
   <div class="relative min-h-screen flex flex-col">
 
     <!-- Header with Navigation -->
     <div class="relative z-10 flex-1">
-      <div class="backdrop-blur-sm bg-white/5 border-b border-white/10 px-6 md:px-12 pt-6 pb-8">
-        <nav class="mb-8">
-          <a
-            href="/"
-            class="text-white/80 hover:text-white transition-colors duration-200 text-sm tracking-wide drop-shadow-lg"
-          >
-            ← Home
-          </a>
-        </nav>
-
-        <!-- Note Taker Navigation -->
-        <div class="flex flex-wrap justify-center gap-4 md:gap-6">
-          <a href="/note-taker" class="text-white/70 hover:text-white transition-colors text-sm md:text-base drop-shadow-lg">Overview</a>
-          <a href="/note-taker-features" class="text-white/70 hover:text-white transition-colors text-sm md:text-base drop-shadow-lg">Features</a>
-          <a href="/note-taker-download" class="text-white font-medium border-b-2 border-white pb-1 text-sm md:text-base drop-shadow-lg">Download</a>
-          <a href="/note-taker-pricing" class="text-white/70 hover:text-white transition-colors text-sm md:text-base drop-shadow-lg">Pricing</a>
-          <a href="/note-taker-privacy" class="text-white/70 hover:text-white transition-colors text-sm md:text-base drop-shadow-lg">Privacy</a>
-        </div>
-      </div>
+      <NoteTakerNav currentPage="download" />
 
   <!-- Page Header -->
   <section class="relative z-10 py-20">
@@ -71,7 +55,7 @@ import { FileText, Download, Laptop, Cpu, HardDrive, Mic, Video, Users, MessageS
   <!-- System Requirements -->
   <section class="relative z-10 py-24">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-16 text-white drop-shadow-lg fade-in">System Requirements</h2>
+      <h2 class="text-4xl font-bold text-center mb-16 drop-shadow-lg fade-in" style="color: #00D9FF;">System Requirements</h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl text-center border border-white/10 fade-in">
@@ -162,7 +146,7 @@ import { FileText, Download, Laptop, Cpu, HardDrive, Mic, Video, Users, MessageS
   <!-- Works With -->
   <section class="relative z-10 py-24">
     <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-4xl font-bold text-center mb-4 text-white drop-shadow-lg fade-in">Works With Your Tools</h2>
+      <h2 class="text-4xl font-bold text-center mb-4 drop-shadow-lg fade-in" style="color: #00D9FF;">Works With Your Tools</h2>
       <p class="text-xl text-white/80 text-center mb-16 drop-shadow-lg fade-in" style="animation-delay: 0.1s;">Compatible with all major meeting platforms</p>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-8">
@@ -208,11 +192,22 @@ import { FileText, Download, Laptop, Cpu, HardDrive, Mic, Video, Users, MessageS
     </div>
   </div>
 
+  <!-- Links Section -->
+  <div class="relative z-10 border-t border-white/10 py-8 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-6 text-sm text-white/70">
+      <a href="/support" class="hover:text-white transition-colors">Support</a>
+      <span class="text-white/30">•</span>
+      <a href="/note-taker-privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a>
+      <span class="text-white/30">•</span>
+      <a href="/note-taker-terms" class="hover:text-white transition-colors">Terms of Service</a>
+    </div>
+  </div>
+
   <!-- Footer with black background -->
   <footer class="bg-black py-8 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
       <p class="text-center text-white/30 text-xs tracking-wide">
-        <span class="font-semibold">Field Bureau + Werkstatt</span>
+        <a href="/" class="font-semibold hover:text-white/50 transition-colors">Field Bureau + Werkstatt</a>
         <span class="mx-2">•</span>
         © {new Date().getFullYear()} Field Bureau & Werkstatt LLC. All rights reserved.
       </p>

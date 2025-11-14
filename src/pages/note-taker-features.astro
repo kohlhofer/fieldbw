@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Lock, ShieldOff, Check, Laptop, Cloud, X, Mic, Zap, Sparkles, MessageSquare, Upload, Tag, Search } from 'lucide-react';
+import NoteTakerNav from '../components/NoteTakerNav.astro';
+import { Lock, ShieldOff, Check, Laptop, Cloud, X, Mic, Zap, Sparkles, MessageSquare, Upload, Tag, Search, Users } from 'lucide-react';
 
 const iconSize = 40;
 ---
@@ -9,37 +10,20 @@ const iconSize = 40;
   title="Features – On-Device Note Taker"
   description="Explore the powerful features of On-Device Note Taker: privacy-first transcription, AI summaries, speaker identification, and more."
   backgroundImage="/images/bg3.jpg"
-  gradientOverlay="linear-gradient(to bottom, #4a4a4a, #2a2a2a)"
+  gradientOverlay="linear-gradient(to bottom, rgba(0, 217, 255, 0.06), rgba(0, 217, 255, 0.06)), linear-gradient(to bottom, #0f172a, #020617)"
+  disableAnimation={true}
 >
   <div class="relative min-h-screen flex flex-col">
 
     <!-- Header with Navigation -->
     <div class="relative z-10 flex-1">
-      <div class="backdrop-blur-sm bg-white/5 border-b border-white/10 px-6 md:px-12 pt-6 pb-8">
-        <nav class="mb-8">
-          <a
-            href="/"
-            class="text-white/80 hover:text-white transition-colors duration-200 text-sm tracking-wide drop-shadow-lg"
-          >
-            ← Home
-          </a>
-        </nav>
-
-        <!-- Note Taker Navigation -->
-        <div class="flex flex-wrap justify-center gap-4 md:gap-6">
-          <a href="/note-taker" class="text-white/70 hover:text-white transition-colors text-sm md:text-base drop-shadow-lg">Overview</a>
-          <a href="/note-taker-features" class="text-white font-medium border-b-2 border-white pb-1 text-sm md:text-base drop-shadow-lg">Features</a>
-          <a href="/note-taker-download" class="text-white/70 hover:text-white transition-colors text-sm md:text-base drop-shadow-lg">Download</a>
-          <a href="/note-taker-pricing" class="text-white/70 hover:text-white transition-colors text-sm md:text-base drop-shadow-lg">Pricing</a>
-          <a href="/note-taker-privacy" class="text-white/70 hover:text-white transition-colors text-sm md:text-base drop-shadow-lg">Privacy</a>
-        </div>
-      </div>
+      <NoteTakerNav currentPage="features" />
 
   <!-- Page Header -->
   <section class="relative z-10 py-20">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h1 class="text-5xl md:text-6xl font-light text-white leading-tight mb-4 drop-shadow-lg fade-in">
-        Powerful Features.<br/><span class="text-white/90">Complete Privacy.</span>
+        Powerful Features.<br/><span style="color: #00D9FF;">Complete Privacy.</span>
       </h1>
       <p class="text-xl md:text-2xl text-white/90 drop-shadow-lg fade-in" style="animation-delay: 0.1s;">Everything you need for meeting transcription, all on your Mac.</p>
     </div>
@@ -50,7 +34,7 @@ const iconSize = 40;
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="fade-in">
-          <h2 class="text-4xl font-bold mb-4 text-white drop-shadow-lg">100% Local Processing</h2>
+          <h2 class="text-4xl font-bold mb-4 drop-shadow-lg" style="color: #00D9FF;">100% Local Processing</h2>
           <h3 class="text-xl text-white/80 mb-6 drop-shadow-lg">Your data never leaves your Mac</h3>
           <p class="text-lg text-white/80 mb-6 drop-shadow-lg">
             Unlike cloud-based competitors, On-Device Note Taker processes everything locally using Apple Intelligence. Your audio files, transcripts, and AI summaries stay on your device.
@@ -64,7 +48,7 @@ const iconSize = 40;
               'Sandboxed and secure',
             ].map((item, index) => (
               <li class="flex items-center gap-3 text-lg text-white/90 drop-shadow-lg" style={`animation-delay: ${index * 0.1}s;`}>
-                <Check size={20} className="text-green-400" />
+                <Check size={20} style={{color: '#00D9FF'}} />
                 <span>{item}</span>
               </li>
             ))}
@@ -72,7 +56,7 @@ const iconSize = 40;
         </div>
         <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 fade-in" style="animation-delay: 0.2s;">
           <div class="flex items-center justify-center gap-8">
-            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border-2 border-green-400/50 shadow-lg text-center flex-1">
+            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border-2 shadow-lg text-center flex-1" style="border-color: rgba(0, 217, 255, 0.5);">
               <div class="flex justify-center mb-4">
                 <Laptop size={48} className="text-white/90" />
               </div>
@@ -80,7 +64,7 @@ const iconSize = 40;
               <p class="text-sm text-white/70 drop-shadow-lg">All processing happens here</p>
             </div>
             <div class="flex flex-col items-center">
-              <Lock size={32} className="text-green-400" />
+              <Lock size={32} style={{color: '#00D9FF'}} />
             </div>
             <div class="bg-white/5 backdrop-blur-sm p-8 rounded-xl border-2 border-white/20 text-center flex-1 relative opacity-50">
               <div class="flex justify-center mb-4">
@@ -104,30 +88,51 @@ const iconSize = 40;
   <section class="relative z-10 py-24">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="order-2 lg:order-1">
-          <div class="space-y-6 fade-in">
-            <div class="bg-red-500/10 border-2 border-red-400/30 rounded-2xl p-8 backdrop-blur-sm">
-              <h4 class="font-semibold mb-4 text-white/90 text-lg drop-shadow-lg">Other Tools</h4>
-              <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-sm flex items-center gap-4 border border-white/10">
-                <div class="flex-shrink-0 bg-red-500/20 p-3 rounded-full">
-                  <ShieldOff size={28} className="text-red-400" />
-                </div>
-                <p class="text-white/90 text-lg font-medium drop-shadow-lg">"Recording Bot has joined the meeting"</p>
+        <div class="order-2 lg:order-1 fade-in">
+          <div class="space-y-4">
+            <h4 class="font-semibold mb-6 text-white/90 text-lg drop-shadow-lg">Choose Your Audio Source</h4>
+
+            <div class="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+              <div class="flex-shrink-0 bg-blue-500/20 p-3 rounded-full">
+                <Mic size={24} className="text-blue-400" />
+              </div>
+              <div>
+                <p class="text-white font-medium drop-shadow-lg">Microphone Only</p>
+                <p class="text-white/70 text-sm drop-shadow-lg">Your voice and local audio</p>
               </div>
             </div>
-            <div class="bg-green-500/10 border-2 border-green-400/30 rounded-2xl p-8 backdrop-blur-sm">
-              <h4 class="font-semibold mb-4 text-white/90 text-lg drop-shadow-lg">On-Device Note Taker</h4>
-              <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-sm flex items-center gap-4 border border-white/10">
-                <div class="flex-shrink-0 bg-green-500/20 p-3 rounded-full">
-                  <Check size={28} className="text-green-400" />
-                </div>
-                <p class="text-white/90 text-lg font-medium drop-shadow-lg">No bot. Just clean audio capture.</p>
+
+            <div class="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
+              <div class="flex-shrink-0 bg-purple-500/20 p-3 rounded-full">
+                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4.5M9 9H4.5M9 9 3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5 5.25 5.25" />
+                </svg>
               </div>
+              <div>
+                <p class="text-white font-medium drop-shadow-lg">System Audio Only</p>
+                <p class="text-white/70 text-sm drop-shadow-lg">Meeting audio from apps</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 backdrop-blur-sm rounded-xl border-2" style="background-color: rgba(0, 217, 255, 0.1); border-color: rgba(0, 217, 255, 0.3);">
+              <div class="flex-shrink-0 p-3 rounded-full" style="background-color: rgba(0, 217, 255, 0.2);">
+                <Check size={24} style={{color: '#00D9FF'}} />
+              </div>
+              <div>
+                <p class="text-white font-medium drop-shadow-lg">Both (Recommended)</p>
+                <p class="text-white/70 text-sm drop-shadow-lg">Complete meeting capture</p>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-white/20 text-center">
+              <p class="text-white/80 text-sm drop-shadow-lg">
+                <span style="color: #00D9FF;" class="font-semibold">No meeting bots</span> • Works with any app
+              </p>
             </div>
           </div>
         </div>
         <div class="order-1 lg:order-2 fade-in">
-          <h2 class="text-4xl font-bold mb-4 text-white drop-shadow-lg">Direct Audio Capture</h2>
+          <h2 class="text-4xl font-bold mb-4 drop-shadow-lg" style="color: #00D9FF;">Direct Audio Capture</h2>
           <h3 class="text-xl text-white/80 mb-6 drop-shadow-lg">No awkward meeting bots</h3>
           <p class="text-lg text-white/80 mb-6 drop-shadow-lg">
             Record meetings without the embarrassing "Recording Bot has joined" announcement. On-Device Note Taker captures system audio directly using ScreenCaptureKit.
@@ -136,12 +141,12 @@ const iconSize = 40;
             {[
               'Works with Zoom, Teams, Meet, and any app',
               'No visible bot in meetings',
-              'Records both system audio and your mic',
+              'Choose microphone, system audio, or both',
               'High-quality audio capture',
               'You control when recording happens',
             ].map((item, index) => (
               <li class="flex items-center gap-3 text-lg text-white/90 drop-shadow-lg" style={`animation-delay: ${index * 0.1}s;`}>
-                <Check size={20} className="text-green-400" />
+                <Check size={20} style={{color: '#00D9FF'}} />
                 <span>{item}</span>
               </li>
             ))}
@@ -151,44 +156,117 @@ const iconSize = 40;
     </div>
   </section>
 
-  <!-- Feature: Speaker Identification -->
+  <!-- Feature: AI Summaries -->
   <section class="relative z-10 py-24">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="fade-in">
-          <h2 class="text-4xl font-bold mb-4 text-white drop-shadow-lg">Speaker Identification</h2>
-          <h3 class="text-xl text-white/80 mb-6 drop-shadow-lg">Proactively identifies different speakers</h3>
+          <h2 class="text-4xl font-bold mb-4 drop-shadow-lg" style="color: #00D9FF;">AI Summaries</h2>
+          <h3 class="text-xl text-white/80 mb-6 drop-shadow-lg">Automatic key points and insights</h3>
           <p class="text-lg text-white/80 mb-6 drop-shadow-lg">
-            Automatically identifies different speakers and color-codes them in your transcript. Rename speakers and see speaking time percentages.
+            Get instant AI-generated summaries of your meetings. Extract key points and executive summaries without any extra work.
           </p>
           <ul class="space-y-3">
             {[
-              'Automatic speaker detection',
-              'Color-coded transcripts',
-              'Easy speaker renaming',
-              'Speaking time statistics',
-              'FluidAudio diarization technology',
+              'Key points identification',
+              'Executive summaries',
+              'All on-device processing',
+              'Powered by Apple Intelligence',
             ].map((item, index) => (
               <li class="flex items-center gap-3 text-lg text-white/90 drop-shadow-lg" style={`animation-delay: ${index * 0.1}s;`}>
-                <Check size={20} className="text-green-400" />
+                <Check size={20} style={{color: '#00D9FF'}} />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div class="space-y-4 fade-in" style="animation-delay: 0.2s;">
-          <div class="bg-blue-500/10 border-l-4 border-blue-400 p-4 rounded-r-lg backdrop-blur-sm">
-            <div class="text-sm font-semibold text-blue-300 mb-1 drop-shadow-lg">Speaker 1 (42%)</div>
-            <p class="text-white/80 drop-shadow-lg">I think we should focus on the mobile app first.</p>
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 fade-in" style="animation-delay: 0.2s;">
+          <div class="space-y-6">
+            <div>
+              <h4 class="text-sm font-semibold text-white/70 mb-2 drop-shadow-lg">ACTION ITEMS</h4>
+              <ul class="space-y-2">
+                <li class="text-white/90 drop-shadow-lg">• Design mockups due by end of week</li>
+                <li class="text-white/90 drop-shadow-lg">• Schedule follow-up for December 15th</li>
+                <li class="text-white/90 drop-shadow-lg">• Review budget proposal</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-white/70 mb-2 drop-shadow-lg">KEY POINTS</h4>
+              <ul class="space-y-2">
+                <li class="text-white/90 drop-shadow-lg">• Focus shifted to mobile app priority</li>
+                <li class="text-white/90 drop-shadow-lg">• December 15th confirmed as deadline</li>
+                <li class="text-white/90 drop-shadow-lg">• Design phase starting this week</li>
+              </ul>
+            </div>
           </div>
-          <div class="bg-green-500/10 border-l-4 border-green-400 p-4 rounded-r-lg backdrop-blur-sm">
-            <div class="text-sm font-semibold text-green-300 mb-1 drop-shadow-lg">Speaker 2 (35%)</div>
-            <p class="text-white/80 drop-shadow-lg">Agreed. The deadline is December 15th.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: Interactive Chat -->
+  <section class="relative z-10 py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="order-2 lg:order-1 fade-in">
+          <div class="space-y-6">
+            <!-- User message bubble (right-aligned, blue) -->
+            <div class="flex justify-end">
+              <div class="max-w-[80%]">
+                <div class="bg-blue-500 rounded-2xl rounded-tr-sm px-4 py-3 shadow-lg">
+                  <p class="text-white drop-shadow-lg">What were the main action items from this meeting?</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- AI response bubble (left-aligned, gray) -->
+            <div class="flex justify-start">
+              <div class="max-w-[85%]">
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl rounded-tl-sm px-4 py-3 shadow-lg">
+                  <p class="text-white/95 drop-shadow-lg">The main action items were: completing design mockups by end of week, scheduling a follow-up for December 15th, and reviewing the budget proposal.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- User follow-up message -->
+            <div class="flex justify-end">
+              <div class="max-w-[75%]">
+                <div class="bg-blue-500 rounded-2xl rounded-tr-sm px-4 py-3 shadow-lg">
+                  <p class="text-white drop-shadow-lg">Who's responsible for the mockups?</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- AI follow-up response -->
+            <div class="flex justify-start">
+              <div class="max-w-[80%]">
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl rounded-tl-sm px-4 py-3 shadow-lg">
+                  <p class="text-white/95 drop-shadow-lg">Speaker 3 mentioned they'll start on the design mockups this week.</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="bg-orange-500/10 border-l-4 border-orange-400 p-4 rounded-r-lg backdrop-blur-sm">
-            <div class="text-sm font-semibold text-orange-300 mb-1 drop-shadow-lg">Speaker 3 (23%)</div>
-            <p class="text-white/80 drop-shadow-lg">I'll start on the design mockups this week.</p>
-          </div>
+        </div>
+        <div class="order-1 lg:order-2 fade-in">
+          <h2 class="text-4xl font-bold mb-4 drop-shadow-lg" style="color: #00D9FF;">Interactive Chat</h2>
+          <h3 class="text-xl text-white/80 mb-6 drop-shadow-lg">Ask questions about your recordings</h3>
+          <p class="text-lg text-white/80 mb-6 drop-shadow-lg">
+            Chat with your transcripts using AI. Ask questions and get instant answers based on your meeting content. Perfect for finding specific information quickly.
+          </p>
+          <ul class="space-y-3">
+            {[
+              'Ask questions in natural language',
+              'Get instant answers from transcripts',
+              'Multi-turn conversations supported',
+              'Context-aware responses',
+              'All processing stays local',
+            ].map((item, index) => (
+              <li class="flex items-center gap-3 text-lg text-white/90 drop-shadow-lg" style={`animation-delay: ${index * 0.1}s;`}>
+                <Check size={20} style={{color: '#00D9FF'}} />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
@@ -198,7 +276,8 @@ const iconSize = 40;
   <section class="relative z-10 py-24">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-16 text-white drop-shadow-lg fade-in">And Much More</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 md:divide-x md:divide-white/20">
         {[
           {
             icon: Zap,
@@ -206,20 +285,25 @@ const iconSize = 40;
             description: 'Words appear as you speak using Apple\'s latest on-device speech recognition.',
           },
           {
-            icon: Sparkles,
-            title: 'AI Summaries',
-            description: 'Automatic action items, key points, and executive summaries.',
-          },
-          {
-            icon: MessageSquare,
-            title: 'Interactive Chat',
-            description: 'Ask questions about your recordings and get instant answers.',
+            icon: Users,
+            title: 'Speaker Identification (Preview)',
+            description: 'Color-coded transcripts make it easy to follow who said what.',
           },
           {
             icon: Upload,
             title: 'Flexible Export',
             description: 'Export to Markdown, text, JSON. Share via AirDrop, Messages, Mail.',
           },
+        ].map((feature, index) => (
+          <div class="space-y-4 border-l border-white/30 pl-6 md:border-l-0 md:border-white/20 md:px-6 lg:px-8 fade-in" style={`animation-delay: ${index * 0.1}s;`}>
+            <h3 class="text-xl font-semibold text-white drop-shadow-lg">{feature.title}</h3>
+            <p class="text-white/80 text-sm leading-relaxed drop-shadow-lg">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 md:divide-x md:divide-white/20 mt-12">
+        {[
           {
             icon: Tag,
             title: 'Tags & Organization',
@@ -230,13 +314,15 @@ const iconSize = 40;
             title: 'Full-Text Search',
             description: 'Find anything across all your recordings and transcripts.',
           },
+          {
+            icon: Mic,
+            title: 'Import Audio Files',
+            description: 'Transcribe existing audio recordings. Supports common formats.',
+          },
         ].map((feature, index) => (
-          <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-all fade-in" style={`animation-delay: ${index * 0.1}s;`}>
-            <div class="mb-6">
-              <feature.icon size={iconSize} className="text-white/90" />
-            </div>
-            <h3 class="text-xl font-semibold mb-3 text-white drop-shadow-lg">{feature.title}</h3>
-            <p class="text-white/80 leading-relaxed drop-shadow-lg">{feature.description}</p>
+          <div class="space-y-4 border-l border-white/30 pl-6 md:border-l-0 md:border-white/20 md:px-6 lg:px-8 fade-in" style={`animation-delay: ${(index + 3) * 0.1}s;`}>
+            <h3 class="text-xl font-semibold text-white drop-shadow-lg">{feature.title}</h3>
+            <p class="text-white/80 text-sm leading-relaxed drop-shadow-lg">{feature.description}</p>
           </div>
         ))}
       </div>
@@ -261,11 +347,22 @@ const iconSize = 40;
     </div>
   </div>
 
+  <!-- Links Section -->
+  <div class="relative z-10 border-t border-white/10 py-8 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-6 text-sm text-white/70">
+      <a href="/support" class="hover:text-white transition-colors">Support</a>
+      <span class="text-white/30">•</span>
+      <a href="/note-taker-privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a>
+      <span class="text-white/30">•</span>
+      <a href="/note-taker-terms" class="hover:text-white transition-colors">Terms of Service</a>
+    </div>
+  </div>
+
   <!-- Footer with black background -->
   <footer class="bg-black py-8 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
       <p class="text-center text-white/30 text-xs tracking-wide">
-        <span class="font-semibold">Field Bureau + Werkstatt</span>
+        <a href="/" class="font-semibold hover:text-white/50 transition-colors">Field Bureau + Werkstatt</a>
         <span class="mx-2">•</span>
         © {new Date().getFullYear()} Field Bureau & Werkstatt LLC. All rights reserved.
       </p>
