@@ -33,6 +33,32 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Setup Python for docs
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+          cache-dependency-path: 'notetaker/requirements.txt'
+
+      - name: Clone notetaker repository
+        uses: actions/checkout@v4
+        with:
+          repository: kohlhofer/notetaker
+          path: notetaker
+          ref: main
+
+      - name: Install MkDocs dependencies
+        run: pip install -r notetaker/requirements.txt
+
+      - name: Build documentation
+        working-directory: notetaker
+        run: mkdocs build --verbose --strict
+
+      - name: Copy docs to Astro build output
+        run: |
+          mkdir -p dist/note-taker/docs
+          cp -r notetaker/site/* dist/note-taker/docs/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
