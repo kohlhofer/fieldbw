@@ -1,0 +1,279 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const attractors = [
+  { name: 'Lorenz', description: 'The famous butterfly-shaped attractor' },
+  { name: 'Rössler', description: 'Elegant spiraling patterns' },
+  { name: 'Aizawa', description: 'Complex convergent structure' },
+  { name: 'Burke-Shaw', description: 'Compact, intricate form' },
+  { name: 'Halvorsen', description: 'Symmetric, multi-lobed beauty' },
+  { name: 'Chen', description: 'A butterfly variant' },
+  { name: 'Nose-Hoover', description: 'Fundamental ergodic system' },
+  { name: 'Sprott B', description: 'Minimal polynomial attractor' },
+  { name: 'Dadras', description: 'Five-parameter chaotic system' }
+];
+---
+
+<BaseLayout
+  title="Chaos Studies - Field Bureau + Werkstatt"
+  description="Explore the infinite beauty of strange attractors. An immersive iOS, macOS, and Playdate experience with synthesized sound and spatial visualization."
+>
+  <div class="relative min-h-screen flex flex-col bg-black">
+
+    <!-- Hero Section -->
+    <div class="relative z-10">
+      <!-- Main Header -->
+      <div class="relative px-6 md:px-12 pt-16 pb-16 border-b border-white/10 overflow-hidden">
+        <!-- Background Video -->
+        <video
+          id="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          disablepictureinpicture
+          webkit-playsinline
+          x-webkit-airplay="deny"
+          poster="/images/attractor.png"
+          class="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/chaos.mp4" type="video/mp4">
+          <source src="/videos/chaos.webm" type="video/webm">
+        </video>
+        <div
+          class="absolute inset-0"
+          style="background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 1));"
+        ></div>
+        <div class="relative z-10 py-20 md:py-32">
+
+          <!-- Title Only - Left Side With Padding -->
+          <div class="px-6 md:px-12 lg:pl-[12%] animate-fade-in-up" style="opacity: 0;">
+            <div class="text-xs font-mono text-white/50 uppercase tracking-[0.3em] mb-4">
+              iOS · macOS · Playdate
+            </div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl text-white leading-[0.9] tracking-tight drop-shadow-lg">
+              <span class="font-extralight">Chaos</span><br/><span class="font-bold">Studies</span>
+            </h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- Description Section -->
+      <div class="px-6 md:px-12 py-12 border-b border-white/10">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <p class="text-base md:text-lg text-white/70 leading-relaxed font-light max-w-xl">
+            Strange attractors are mathematical patterns that emerge from chaotic systems. Though governed by simple equations, they never repeat exactly, creating infinitely complex, beautiful shapes.
+          </p>
+          <a
+            href="#"
+            class="inline-flex items-center justify-center px-6 py-3 text-sm font-mono text-white/80 bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-200 tracking-wider uppercase shrink-0"
+          >
+            Coming Soon
+          </a>
+        </div>
+      </div>
+
+      <!-- Screenshot Gallery -->
+      <div class="py-12 px-6 md:px-12 border-b border-white/10">
+        <div class="max-w-5xl mx-auto">
+          <div class="grid grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
+            <button class="gallery-thumb" data-img="/images/Chaos-1.png">
+              <img src="/images/Chaos-1.png" alt="Strange attractor" class="w-full aspect-[4/3] object-contain hover:scale-105 transition-transform duration-200" />
+            </button>
+            <button class="gallery-thumb" data-img="/images/Chaos-2.png">
+              <img src="/images/Chaos-2.png" alt="Strange attractor" class="w-full aspect-[4/3] object-contain hover:scale-105 transition-transform duration-200" />
+            </button>
+            <button class="gallery-thumb" data-img="/images/Chaos-3.png">
+              <img src="/images/Chaos-3.png" alt="Strange attractor" class="w-full aspect-[4/3] object-contain hover:scale-105 transition-transform duration-200" />
+            </button>
+            <button class="gallery-thumb" data-img="/images/Chaos-4.png">
+              <img src="/images/Chaos-4.png" alt="Menu screen" class="w-full aspect-[4/3] object-contain hover:scale-105 transition-transform duration-200" />
+            </button>
+            <button class="gallery-thumb" data-img="/images/Chaos-5.png">
+              <img src="/images/Chaos-5.png" alt="Light mode attractor" class="w-full aspect-[4/3] object-contain hover:scale-105 transition-transform duration-200" />
+            </button>
+            <button class="gallery-thumb" data-img="/images/Chaos-6.png">
+              <img src="/images/Chaos-6.png" alt="Light mode attractor" class="w-full aspect-[4/3] object-contain hover:scale-105 transition-transform duration-200" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lightbox Modal -->
+      <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center backdrop-blur-sm cursor-pointer" style="background: rgb(115, 115, 115);">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white/50 hover:text-white text-2xl font-light">&times;</button>
+        <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] object-contain" />
+      </div>
+
+      <div class="px-6 md:px-12 py-16">
+        <div class="max-w-6xl mx-auto">
+
+          <!-- Features Grid -->
+          <div class="mb-24">
+            <div class="grid md:grid-cols-3 gap-12 md:gap-8">
+
+              <!-- Interactive Exploration -->
+              <div class="space-y-4 text-center animate-fade-in-up" style="animation-delay: 200ms; opacity: 0;">
+                <div class="w-px h-12 bg-white/20 mx-auto"></div>
+                <h3 class="text-lg font-light text-white tracking-wide">Touch & Explore</h3>
+                <p class="text-white/60 text-sm leading-relaxed font-light">
+                  Drag to rotate with inertial momentum. Pinch to zoom. Tap for dramatic explosion effects. The mathematics respond to your touch.
+                </p>
+              </div>
+
+              <!-- Synthesized Sound -->
+              <div class="space-y-4 text-center animate-fade-in-up" style="animation-delay: 350ms; opacity: 0;">
+                <div class="w-px h-12 bg-white/20 mx-auto"></div>
+                <h3 class="text-lg font-light text-white tracking-wide">Generative Audio</h3>
+                <p class="text-white/60 text-sm leading-relaxed font-light">
+                  Synthesized sounds respond to the visualization. Ambient hum, cursor-tracking synthesis, and spatial reverb create an immersive soundscape.
+                </p>
+              </div>
+
+              <!-- Spatial Visualization -->
+              <div class="space-y-4 text-center animate-fade-in-up" style="animation-delay: 500ms; opacity: 0;">
+                <div class="w-px h-12 bg-white/20 mx-auto"></div>
+                <h3 class="text-lg font-light text-white tracking-wide">Spatial & Playful</h3>
+                <p class="text-white/60 text-sm leading-relaxed font-light">
+                  Motion parallax follows your device. Full-screen immersion. Light and dark modes. A meditative intersection of science and art.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Attractors Section -->
+          <div class="mb-24">
+            <h2 class="text-2xl md:text-3xl font-extralight text-white mb-12 text-center tracking-wide animate-fade-in-up" style="animation-delay: 100ms; opacity: 0;">
+              Nine Strange Attractors
+            </h2>
+
+            <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-9 gap-4 md:gap-6">
+              {attractors.map((attractor, index) => (
+                <div
+                  class="text-center space-y-2 animate-fade-in-up group"
+                  style={`animation-delay: ${200 + index * 80}ms; opacity: 0;`}
+                >
+                  <div class="aspect-square border border-white/10 flex items-center justify-center group-hover:border-white/30 transition-colors duration-300">
+                    <span class="text-white/30 font-mono text-xs group-hover:text-white/50 transition-colors duration-300">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <h4 class="text-white/90 text-xs font-light tracking-wide">{attractor.name}</h4>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Philosophy Section -->
+          <div class="mb-24 max-w-3xl mx-auto text-center animate-fade-in-up" style="animation-delay: 300ms; opacity: 0;">
+            <div class="border-t border-b border-white/10 py-12">
+              <p class="text-white/50 text-lg md:text-xl leading-relaxed font-light italic px-6">
+                "Chaos Studies transforms abstract mathematics into visceral, interactive art. Touch the infinite complexity of chaotic systems."
+              </p>
+            </div>
+          </div>
+
+          <!-- Technical Details -->
+          <div class="mb-16 py-8 px-6 border border-white/5">
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div class="space-y-4 animate-fade-in-up" style="animation-delay: 200ms; opacity: 0;">
+                <h4 class="text-white/70 text-xs font-mono uppercase tracking-wider">Rendering</h4>
+                <p class="text-white/50 text-sm leading-relaxed font-light">
+                  Metal GPU acceleration. Real-time 3D point cloud visualization. Smooth camera transitions. Geodesic grid overlay option.
+                </p>
+              </div>
+              <div class="space-y-4 animate-fade-in-up" style="animation-delay: 300ms; opacity: 0;">
+                <h4 class="text-white/70 text-xs font-mono uppercase tracking-wider">Experience</h4>
+                <p class="text-white/50 text-sm leading-relaxed font-light">
+                  Full-screen immersion. Accelerometer parallax on iOS. Haptic feedback. Dark and light display modes. Shake to access settings.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Links Section -->
+    <div class="relative z-10 border-t border-white/10 py-8 px-6 md:px-12">
+      <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-6 text-sm text-white/40 font-mono">
+        <a href="/support" class="hover:text-white/70 transition-colors">Support</a>
+        <span class="text-white/20">·</span>
+        <a href="/chaos-studies-privacy" class="hover:text-white/70 transition-colors">Privacy</a>
+        <span class="text-white/20">·</span>
+        <a href="/chaos-studies-terms" class="hover:text-white/70 transition-colors">Terms</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-black py-8 px-6 md:px-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-center text-white/20 text-xs tracking-wide font-mono">
+        <a href="/" class="hover:text-white/40 transition-colors">Field Bureau + Werkstatt</a>
+        <span class="mx-3">·</span>
+        © {new Date().getFullYear()}
+      </p>
+    </div>
+  </footer>
+<style>
+  .gallery-thumb {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  #lightbox.active {
+    display: flex;
+  }
+</style>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const thumbs = document.querySelectorAll('.gallery-thumb');
+
+  thumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const imgSrc = thumb.getAttribute('data-img');
+      lightboxImg.src = imgSrc;
+      lightbox.classList.add('active');
+    });
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxClose) {
+      lightbox.classList.remove('active');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('active');
+    }
+  });
+
+  // Force video autoplay for Safari
+  const heroVideo = document.getElementById('hero-video');
+  if (heroVideo) {
+    // Ensure muted attribute is set (Safari requirement)
+    heroVideo.muted = true;
+    heroVideo.setAttribute('muted', '');
+
+    // Try to play when ready
+    const tryPlay = () => {
+      heroVideo.play().catch(() => {});
+    };
+
+    // Multiple attempts for Safari
+    tryPlay();
+    heroVideo.addEventListener('loadeddata', tryPlay);
+    heroVideo.addEventListener('canplay', tryPlay);
+    document.addEventListener('DOMContentLoaded', tryPlay);
+    window.addEventListener('load', tryPlay);
+  }
+</script>
+</BaseLayout>
