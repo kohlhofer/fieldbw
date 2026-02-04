@@ -1,5 +1,42 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image, getImage } from 'astro:assets';
+
+// Import gallery images for optimization
+import ipadDark1 from '../assets/chaos-studies/ipad-dark-1.png';
+import ipadDark2 from '../assets/chaos-studies/ipad-dark-2.png';
+import ipadDark3 from '../assets/chaos-studies/ipad-dark-3.png';
+import ipadDark4 from '../assets/chaos-studies/ipad-dark-4.png';
+import ipadLight1 from '../assets/chaos-studies/ipad-light-1.png';
+import ipadLight2 from '../assets/chaos-studies/ipad-light-2.png';
+import ipadLight3 from '../assets/chaos-studies/ipad-light-3.png';
+import iphoneDark1 from '../assets/chaos-studies/iphone-dark-1.png';
+import iphoneDark2 from '../assets/chaos-studies/iphone-dark-2.png';
+import iphoneLight1 from '../assets/chaos-studies/iphone-light-1.png';
+import iphoneMenu from '../assets/chaos-studies/iphone-menu.png';
+
+// Pre-generate optimized images for lightbox (larger size)
+const galleryData = [
+  { src: ipadDark1, alt: 'Strange attractor on iPad', device: 'iPad', light: false },
+  { src: iphoneDark1, alt: 'Strange attractor on iPhone', device: 'iPhone', light: false },
+  { src: ipadLight1, alt: 'Strange attractor light mode on iPad', device: 'iPad', light: true },
+  { src: iphoneDark2, alt: 'Strange attractor on iPhone', device: 'iPhone', light: false },
+  { src: ipadDark2, alt: 'Strange attractor on iPad', device: 'iPad', light: false },
+  { src: iphoneLight1, alt: 'Strange attractor light mode on iPhone', device: 'iPhone', light: true },
+  { src: ipadLight2, alt: 'Strange attractor light mode on iPad', device: 'iPad', light: true },
+  { src: iphoneMenu, alt: 'Attractor menu on iPhone', device: 'iPhone', light: false },
+  { src: ipadDark3, alt: 'Strange attractor on iPad', device: 'iPad', light: false },
+  { src: ipadLight3, alt: 'Strange attractor light mode on iPad', device: 'iPad', light: true },
+  { src: ipadDark4, alt: 'Strange attractor on iPad', device: 'iPad', light: false },
+];
+
+// Generate optimized lightbox versions (1400px wide)
+const galleryImages = await Promise.all(
+  galleryData.map(async (img) => {
+    const lightboxImg = await getImage({ src: img.src, width: 1400, quality: 85 });
+    return { ...img, lightboxSrc: lightboxImg.src };
+  })
+);
 
 const attractors = [
   { name: 'Lorenz', description: 'The famous butterfly-shaped attractor' },
@@ -49,49 +86,216 @@ const attractors = [
 
       <!-- Description Section -->
       <div class="px-6 md:px-12 py-12">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <p class="text-base md:text-lg text-white/70 leading-relaxed font-light max-w-xl">
+        <div class="px-6 md:px-12 lg:pl-[12%] flex flex-col md:flex-row md:items-center gap-8">
+          <div class="flex flex-col sm:flex-row gap-3 shrink-0 order-2 md:order-1">
+            <!-- App Store Button -->
+            <button
+              type="button"
+              class="coming-soon-btn group flex items-center gap-3 px-5 py-3 bg-white text-black rounded-xl hover:bg-white/90 transition-all duration-200"
+            >
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+              </svg>
+              <div class="text-left">
+                <div class="text-[10px] uppercase tracking-wide opacity-60">Download on the</div>
+                <div class="text-base font-medium -mt-0.5">App Store</div>
+              </div>
+            </button>
+
+            <!-- Playdate Button -->
+            <button
+              type="button"
+              class="coming-soon-btn group flex items-center gap-3 px-5 py-3 bg-transparent text-white border border-white/30 rounded-xl hover:bg-white/10 hover:border-white/50 transition-all duration-200"
+            >
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="6" width="20" height="12" rx="2" />
+                <circle cx="8" cy="12" r="3" />
+                <circle cx="17" cy="10" r="1" fill="currentColor" />
+                <circle cx="17" cy="14" r="1" fill="currentColor" />
+              </svg>
+              <div class="text-left">
+                <div class="text-[10px] uppercase tracking-wide opacity-60">Get it on</div>
+                <div class="text-base font-medium -mt-0.5">Playdate</div>
+              </div>
+            </button>
+          </div>
+          <p class="text-base md:text-lg text-white/70 leading-relaxed font-light max-w-xl order-1 md:order-2">
             Strange attractors are mathematical patterns that emerge from chaotic systems. Though governed by simple equations, they never repeat exactly, creating infinitely complex, beautiful shapes.
           </p>
-          <a
-            href="#"
-            class="inline-flex items-center justify-center px-6 py-3 text-sm font-mono text-white/80 bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-200 tracking-wider uppercase shrink-0"
-          >
-            Coming to App Store
-          </a>
+        </div>
+      </div>
+
+      <!-- iPad Section -->
+      <div class="py-12 px-6 md:px-12">
+        <div class="max-w-5xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <img
+                src="/chaos-studies/ipad.jpeg"
+                alt="Chaos Studies on iPad"
+                class="w-full h-auto"
+              />
+            </div>
+            <div class="order-1 lg:order-2">
+              <div class="text-xs font-mono text-white/40 uppercase tracking-[0.2em] mb-3">iPad</div>
+              <h2 class="text-2xl md:text-3xl font-light text-white mb-4">Immersive Canvas</h2>
+              <p class="text-white/60 leading-relaxed mb-4">
+                Strange attractors deserve space. Touch to rotate, pinch to zoom, and let the spatial soundscapes wash over you on the big screen.
+              </p>
+              <ul class="space-y-2 text-sm text-white/50">
+                <li class="flex items-center gap-2">
+                  <span class="w-1 h-1 bg-white/40 rounded-full"></span>
+                  Multi-touch exploration
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1 h-1 bg-white/40 rounded-full"></span>
+                  Generative spatial audio
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mac Section -->
+      <div class="py-12 px-6 md:px-12">
+        <div class="max-w-5xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div>
+              <div class="text-xs font-mono text-white/40 uppercase tracking-[0.2em] mb-3">Mac</div>
+              <h2 class="text-2xl md:text-3xl font-light text-white mb-4">Desktop Scale</h2>
+              <p class="text-white/60 leading-relaxed mb-4">
+                The full experience on your desktop. Metal-powered rendering fills any size screen with silky smooth chaos and evolving soundscapes.
+              </p>
+              <ul class="space-y-2 text-sm text-white/50">
+                <li class="flex items-center gap-2">
+                  <span class="w-1 h-1 bg-white/40 rounded-full"></span>
+                  Native Apple Silicon
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1 h-1 bg-white/40 rounded-full"></span>
+                  Light and dark modes
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img
+                src="/chaos-studies/mac.jpeg"
+                alt="Chaos Studies on Mac"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- iPhone Section -->
+      <div class="py-12 px-6 md:px-12">
+        <div class="max-w-5xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div class="order-2 lg:order-1">
+              <img
+                src="/chaos-studies/iphone.jpeg"
+                alt="Chaos Studies on iPhone"
+                class="w-full h-auto"
+              />
+            </div>
+            <div class="order-1 lg:order-2">
+              <div class="text-xs font-mono text-white/40 uppercase tracking-[0.2em] mb-3">iPhone</div>
+              <h2 class="text-2xl md:text-3xl font-light text-white mb-4">Chaos in Your Pocket</h2>
+              <p class="text-white/60 leading-relaxed mb-4">
+                Tilt your device and watch the attractor respond. Motion parallax creates a window into infinite mathematical space, with spatial audio that follows.
+              </p>
+              <ul class="space-y-2 text-sm text-white/50">
+                <li class="flex items-center gap-2">
+                  <span class="w-1 h-1 bg-white/40 rounded-full"></span>
+                  Device motion parallax
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1 h-1 bg-white/40 rounded-full"></span>
+                  Touch and tilt controls
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Playdate Section -->
+      <div class="py-12 px-6 md:px-12">
+        <div class="max-w-5xl mx-auto">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div>
+              <div class="text-xs font-mono text-white/40 uppercase tracking-[0.2em] mb-3">Playdate</div>
+              <h2 class="text-2xl md:text-3xl font-light text-white mb-4">Crank the Chaos</h2>
+              <p class="text-white/60 leading-relaxed mb-4">
+                A unique vision for Panic's tiny yellow handheld. Use the crank for tactile rotation control. Pure 1-bit rendering reveals each attractor's essential form.
+              </p>
+              <ul class="space-y-2 text-sm text-white/50">
+                <li class="flex items-center gap-2">
+                  <span class="w-1 h-1 bg-white/40 rounded-full"></span>
+                  Crank-controlled rotation
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="w-1 h-1 bg-white/40 rounded-full"></span>
+                  1-bit beauty
+                </li>
+              </ul>
+            </div>
+            <div>
+              <img
+                src="/chaos-studies/playdate.jpeg"
+                alt="Chaos Studies on Playdate"
+                class="w-full h-auto"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Screenshot Gallery -->
-      <div class="py-16 px-6 md:px-12 border-b border-white/10" style="background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(30,30,40,1) 50%, rgba(20,20,30,1));">
+      <div class="pt-20 pb-16 px-6 md:px-12" style="background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(30,30,40,1) 50%, rgba(20,20,30,1));">
         <div class="max-w-6xl mx-auto">
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-            <button class="gallery-thumb group" data-img="/images/Chaos-4.png">
-              <img src="/images/Chaos-4.png" alt="Menu screen" class="w-full aspect-[4/3] object-contain group-hover:scale-105 transition-transform duration-300" />
-            </button>
-            <button class="gallery-thumb group" data-img="/images/Chaos-1.png">
-              <img src="/images/Chaos-1.png" alt="Strange attractor" class="w-full aspect-[4/3] object-contain group-hover:scale-105 transition-transform duration-300" />
-            </button>
-            <button class="gallery-thumb group" data-img="/images/Chaos-5.png">
-              <img src="/images/Chaos-5.png" alt="Light mode attractor" class="w-full aspect-[4/3] object-contain group-hover:scale-105 transition-transform duration-300" />
-            </button>
-            <button class="gallery-thumb group" data-img="/images/Chaos-2.png">
-              <img src="/images/Chaos-2.png" alt="Strange attractor" class="w-full aspect-[4/3] object-contain group-hover:scale-105 transition-transform duration-300" />
-            </button>
-            <button class="gallery-thumb group" data-img="/images/Chaos-6.png">
-              <img src="/images/Chaos-6.png" alt="Light mode attractor" class="w-full aspect-[4/3] object-contain group-hover:scale-105 transition-transform duration-300" />
-            </button>
-            <button class="gallery-thumb group" data-img="/images/Chaos-3.png">
-              <img src="/images/Chaos-3.png" alt="Strange attractor" class="w-full aspect-[4/3] object-contain group-hover:scale-105 transition-transform duration-300" />
-            </button>
+          <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-light text-white mb-3">Screenshots</h2>
+            <p class="text-white/50 text-sm">Dark and light modes across devices</p>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6">
+            {galleryImages.map((img) => (
+              <button class="gallery-thumb group block cursor-pointer h-48 md:h-56 lg:h-64" data-img={img.lightboxSrc}>
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  width={600}
+                  quality={80}
+                  class="w-full h-full object-contain rounded-lg shadow-lg group-hover:opacity-80 transition-opacity duration-200"
+                />
+              </button>
+            ))}
           </div>
         </div>
       </div>
 
       <!-- Lightbox Modal -->
-      <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center backdrop-blur-sm cursor-pointer" style="background: rgba(115, 115, 115, 0.85);">
-        <button id="lightbox-close" class="absolute top-6 right-6 text-white/50 hover:text-white text-2xl font-light">&times;</button>
-        <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] object-contain" />
+      <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center backdrop-blur-sm" style="background: rgba(115, 115, 115, 0.85);">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white/50 hover:text-white text-3xl font-light z-10 w-10 h-10 flex items-center justify-center">&times;</button>
+        <button id="lightbox-prev" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white text-4xl font-light z-10 w-12 h-12 flex items-center justify-center">‹</button>
+        <button id="lightbox-next" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/50 hover:text-white text-4xl font-light z-10 w-12 h-12 flex items-center justify-center">›</button>
+        <img id="lightbox-img" src="" alt="" class="max-w-[85vw] max-h-[90vh] object-contain cursor-default rounded-xl" />
+      </div>
+
+      <!-- Coming Soon Modal -->
+      <div id="coming-soon-modal" class="fixed inset-0 z-50 hidden items-center justify-center backdrop-blur-sm" style="background: rgba(0, 0, 0, 0.8);">
+        <div class="bg-zinc-900 border border-white/10 rounded-2xl p-8 md:p-12 max-w-md mx-4 text-center coming-soon-content">
+          <div class="text-4xl mb-4">🚀</div>
+          <h3 class="text-2xl font-light text-white mb-3">Coming Soon</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-6">
+            Chaos Studies is currently in development. Sign up to be notified when it launches.
+          </p>
+          <button id="coming-soon-close" class="px-6 py-2 text-sm text-white/70 hover:text-white border border-white/20 hover:border-white/40 rounded-lg transition-all">
+            Close
+          </button>
+        </div>
       </div>
 
       <div class="px-6 md:px-12 py-16">
@@ -115,7 +319,7 @@ const attractors = [
                 <div class="w-px h-12 bg-white/20 mx-auto"></div>
                 <h3 class="text-lg font-light text-white tracking-wide">Playdate</h3>
                 <p class="text-white/60 text-sm leading-relaxed font-light">
-                  Crank-controlled rotation for tactile exploration. Accelerometer parallax. 1-bit dithered rendering. Chaotic beauty in your pocket.
+                  Crank-controlled rotation for tactile exploration. Accelerometer parallax. 1-bit rendering. Chaotic beauty in your pocket.
                 </p>
               </div>
 
@@ -139,14 +343,14 @@ const attractors = [
             <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-9 gap-4 md:gap-6">
               {attractors.map((attractor, index) => (
                 <div
-                  class="text-center space-y-2 animate-fade-in-up group"
+                  class="text-center space-y-2 animate-fade-in-up"
                   style={`animation-delay: ${200 + index * 80}ms; opacity: 0;`}
                 >
-                  <div class="aspect-square border border-white/10 flex items-center justify-center group-hover:border-white/30 transition-colors duration-300 overflow-hidden">
+                  <div class="aspect-square border border-white/10 flex items-center justify-center overflow-hidden">
                     <img
                       src={`/images/attractors/${String(index + 1).padStart(2, '0')}-${attractor.name.toLowerCase().replace(/\s+/g, '-').replace('ö', 'o')}.png`}
                       alt={attractor.name}
-                      class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                      class="w-full h-full object-cover opacity-80"
                     />
                   </div>
                   <h4 class="text-white/90 text-xs font-light tracking-wide">{attractor.name}</h4>
@@ -155,39 +359,61 @@ const attractors = [
             </div>
           </div>
 
-          <!-- Philosophy Section -->
-          <div class="mb-24 max-w-3xl mx-auto text-center animate-fade-in-up" style="animation-delay: 300ms; opacity: 0;">
-            <div class="border-t border-b border-white/10 py-12">
-              <p class="text-white/50 text-lg md:text-xl leading-relaxed font-light italic px-6">
-                "Chaos Studies transforms abstract mathematics into visceral, interactive art. Touch the infinite complexity of chaotic systems."
-              </p>
-            </div>
-          </div>
-
-          <!-- Technical Details -->
-          <div class="mb-16 py-8 px-6 border border-white/5">
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div class="space-y-4 animate-fade-in-up" style="animation-delay: 200ms; opacity: 0;">
-                <h4 class="text-white/70 text-xs font-mono uppercase tracking-wider">Rendering</h4>
-                <p class="text-white/50 text-sm leading-relaxed font-light">
-                  Metal GPU acceleration. Real-time 3D point cloud visualization. Smooth camera transitions. Geodesic grid overlay option.
-                </p>
-              </div>
-              <div class="space-y-4 animate-fade-in-up" style="animation-delay: 300ms; opacity: 0;">
-                <h4 class="text-white/70 text-xs font-mono uppercase tracking-wider">Experience</h4>
-                <p class="text-white/50 text-sm leading-relaxed font-light">
-                  Full-screen immersion. Accelerometer parallax on iOS. Dark and light display modes.
-                </p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
     </div>
 
+    <!-- Download CTA Section -->
+    <div class="relative z-10 py-20 px-6 md:px-12 bg-gradient-to-b from-black to-zinc-900">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-light text-white mb-4 animate-fade-in-up" style="opacity: 0;">
+          Experience Chaos
+        </h2>
+        <p class="text-white/50 text-lg mb-12 max-w-xl mx-auto animate-fade-in-up" style="animation-delay: 100ms; opacity: 0;">
+          Explore the beauty of strange attractors on your favorite device.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style="animation-delay: 200ms; opacity: 0;">
+          <!-- App Store Button -->
+          <button
+            type="button"
+            class="coming-soon-btn group flex items-center gap-3 px-6 py-4 bg-white text-black rounded-xl hover:bg-white/90 transition-all duration-200 hover:scale-105"
+          >
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <div class="text-left">
+              <div class="text-[10px] uppercase tracking-wide opacity-60">Download on the</div>
+              <div class="text-lg font-medium -mt-1">App Store</div>
+            </div>
+          </button>
+
+          <!-- Playdate Button -->
+          <button
+            type="button"
+            class="coming-soon-btn group flex items-center gap-3 px-6 py-4 bg-transparent text-white border border-white/30 rounded-xl hover:bg-white/10 hover:border-white/50 transition-all duration-200 hover:scale-105"
+          >
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="6" width="20" height="12" rx="2" />
+              <circle cx="8" cy="12" r="3" />
+              <circle cx="17" cy="10" r="1" fill="currentColor" />
+              <circle cx="17" cy="14" r="1" fill="currentColor" />
+            </svg>
+            <div class="text-left">
+              <div class="text-[10px] uppercase tracking-wide opacity-60">Get it on</div>
+              <div class="text-lg font-medium -mt-1">Playdate</div>
+            </div>
+          </button>
+        </div>
+
+        <p class="text-white/30 text-xs mt-8 animate-fade-in-up" style="animation-delay: 300ms; opacity: 0;">
+          Available for iPhone, iPad, Mac, and Playdate
+        </p>
+      </div>
+    </div>
+
     <!-- Links Section -->
-    <div class="relative z-10 border-t border-white/10 py-8 px-6 md:px-12">
+    <div class="relative z-10 border-t border-white/10 py-8 px-6 md:px-12 bg-zinc-900">
       <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-6 text-sm text-white/40 font-mono">
         <a href="/support" class="hover:text-white/70 transition-colors">Support</a>
         <span class="text-white/20">·</span>
@@ -244,15 +470,46 @@ const attractors = [
     opacity: 0;
     transition: transform 0.2s ease-in, opacity 0.2s ease;
   }
+
+  /* Coming Soon Modal */
+  #coming-soon-modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  #coming-soon-modal.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #coming-soon-modal .coming-soon-content {
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+
+  #coming-soon-modal.active .coming-soon-content {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 </style>
 
 <script>
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
   const thumbs = document.querySelectorAll('.gallery-thumb');
 
+  // Build array of image sources for navigation
+  const galleryImages = Array.from(thumbs).map(t => t.getAttribute('data-img'));
+  let currentIndex = 0;
+
   function openLightbox(imgSrc) {
+    currentIndex = galleryImages.indexOf(imgSrc);
     lightboxImg.src = imgSrc;
     lightbox.style.display = 'flex';
     requestAnimationFrame(() => {
@@ -269,6 +526,16 @@ const attractors = [
     }, 250);
   }
 
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex];
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex];
+  }
+
   thumbs.forEach(thumb => {
     thumb.addEventListener('click', () => {
       const imgSrc = thumb.getAttribute('data-img');
@@ -276,15 +543,68 @@ const attractors = [
     });
   });
 
+  lightboxPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showPrev();
+  });
+
+  lightboxNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showNext();
+  });
+
   lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox || e.target === lightboxClose) {
+    if (e.target === lightbox) {
       closeLightbox();
     }
   });
 
+  lightboxClose.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-      closeLightbox();
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+
+  // Coming Soon Modal
+  const comingSoonModal = document.getElementById('coming-soon-modal');
+  const comingSoonClose = document.getElementById('coming-soon-close');
+  const comingSoonBtns = document.querySelectorAll('.coming-soon-btn');
+
+  function openComingSoon() {
+    comingSoonModal.style.display = 'flex';
+    requestAnimationFrame(() => {
+      comingSoonModal.classList.add('active');
+    });
+  }
+
+  function closeComingSoon() {
+    comingSoonModal.classList.remove('active');
+    setTimeout(() => {
+      comingSoonModal.style.display = 'none';
+    }, 300);
+  }
+
+  comingSoonBtns.forEach(btn => {
+    btn.addEventListener('click', openComingSoon);
+  });
+
+  comingSoonClose.addEventListener('click', closeComingSoon);
+
+  comingSoonModal.addEventListener('click', (e) => {
+    if (e.target === comingSoonModal) {
+      closeComingSoon();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && comingSoonModal.classList.contains('active')) {
+      closeComingSoon();
     }
   });
 
